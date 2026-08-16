@@ -1,0 +1,64 @@
+{
+  "comandos": [
+    {
+      "intencion": "abrir_navegador",
+      "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"],
+      "accion": "abrir_app",
+      "parametro": "chrome"
+    },
+    {
+      "intencion": "abrir_bloc_notas",
+      "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"],
+      "accion": "abrir_app",
+      "parametro": "notepad"
+    },
+    {
+      "intencion": "abrir_calculadora",
+      "frases": ["abrir calculadora", "abre la calculadora"],
+      "accion": "abrir_app",
+      "parametro": "calc"
+    },
+    {
+      "intencion": "buscar_web",
+      "frases": ["buscar en internet", "abrir google", "abre google"],
+      "accion": "abrir_url",
+      "parametro": "https://www.google.com"
+    },
+    {
+      "intencion": "subir_volumen",
+      "frases": ["sube el volumen", "subir volumen", "aumentar volumen"],
+      "accion": "control_volumen",
+      "parametro": "subir"
+    },
+    {
+      "intencion": "bajar_volumen",
+      "frases": ["baja el volumen", "bajar volumen", "disminuir volumen"],
+      "accion": "control_volumen",
+      "parametro": "bajar"
+    },
+    {
+      "intencion": "silenciar",
+      "frases": ["silenciar", "silencia el sonido", "mutear"],
+      "accion": "control_volumen",
+      "parametro": "mute"
+    },
+    {
+      "intencion": "bloquear_sesion",
+      "frases": ["bloquear sesion", "bloquear la sesion", "bloquear pantalla", "bloquea el equipo"],
+      "accion": "bloquear_sesion",
+      "parametro": null
+    },
+    {
+      "intencion": "apagar_equipo",
+      "frases": ["apagar el equipo", "apagar computador", "apaga el pc"],
+      "accion": "apagar_equipo",
+      "parametro": null
+    },
+    {
+      "intencion": "detener_sistema",
+      "frases": ["detener sistema", "para el sistema", "detente", "cancelar"],
+      "accion": "detener",
+      "parametro": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Entorno virtual
+venv/
+env/
+
+# Modelos de Vosk (pesados, no deben ir a GitHub - se descargan aparte)
+models/
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
