@@ -1,0 +1,23 @@
+timestamp,texto_reconocido,intencion,confianza,reconocido,accion,parametro,exito_ejecucion,mensaje,tiempo_respuesta_ms
+2026-08-19T18:05:52,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,149.01
+2026-08-19T18:06:00,sube,navegar_arriba,1.0,True,navegar,arriba,True,Navegación ejecutada: arriba,2667.05
+2026-08-19T18:06:01,baja,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,115.97
+2026-08-19T18:06:04,baja,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,115.43
+2026-08-19T18:06:08,sue,navegar_arriba,0.857,True,navegar,arriba,True,Navegación ejecutada: arriba,115.93
+2026-08-19T18:06:13,ajá,navegar_abajo,0.857,True,navegar,abajo,True,Navegación ejecutada: abajo,107.47
+2026-08-19T18:06:17,play,,0.333,False,,,False,,0.9
+2026-08-19T18:06:26,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Error al leer el elemento enfocado: Neither GUI element (wrapper) nor wrapper method 'get_focus' were found (typo?),2489.65
+2026-08-19T18:06:41,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Error al leer el elemento enfocado: Neither GUI element (wrapper) nor wrapper method 'get_focus' were found (typo?),192.06
+2026-08-19T18:09:40,instalación,,0.462,False,,,False,,1.25
+2026-08-19T18:09:45,mal,,0.444,False,,,False,,0.83
+2026-08-19T18:09:47,genial,,0.545,False,,,False,,2.69
+2026-08-19T18:15:18,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Elemento sin texto legible,3222.83
+2026-08-19T18:15:24,lee,leer_pantalla,1.0,True,leer_pantalla,,True,so | Definición | Diccionario de la lengua española | RAE Diccionario de la lengua española https://dle.rae.es › so,235.93
+2026-08-19T18:15:41,lee,leer_pantalla,1.0,True,leer_pantalla,,True,"Portugués, seleccionar el idioma de origen",245.48
+2026-08-19T18:16:04,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Elemento sin texto legible,255.01
+2026-08-19T18:16:13,lee,leer_pantalla,1.0,True,leer_pantalla,,True,La preposición 'so' - BLOG DE LENGUA BLOG DE LENGUA - Alberto Bustos https://blog.lengua-e.com › Categoría: preposición,235.78
+2026-08-19T18:16:40,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Elemento sin texto legible,217.98
+2026-08-19T18:16:48,lee,leer_pantalla,1.0,True,leer_pantalla,,True,que la flor de la villa me só (Español medieval),233.79
+2026-08-19T18:21:39,lee,leer_pantalla,1.0,True,leer_pantalla,,True,que la flor de la villa me só (Español medieval),3930.63
+2026-08-19T18:22:30,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,115.81
+2026-08-19T18:23:46,no hacía falta que hicieras eso honestamente,,0.414,False,,,False,,3.3

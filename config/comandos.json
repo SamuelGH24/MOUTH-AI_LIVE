@@ -1,64 +1,35 @@
 {
   "comandos": [
+    {"intencion": "abrir_navegador", "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"], "accion": "abrir_app", "parametro": "chrome"},
+    {"intencion": "abrir_bloc_notas", "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"], "accion": "abrir_app", "parametro": "notepad"},
+    {"intencion": "abrir_calculadora", "frases": ["abrir calculadora", "abre la calculadora"], "accion": "abrir_app", "parametro": "calc"},
+    {"intencion": "buscar_web", "frases": ["abrir google", "abre google"], "accion": "abrir_url", "parametro": "https://www.google.com"},
+    {"intencion": "subir_volumen", "frases": ["sube el volumen", "subir volumen", "aumentar volumen"], "accion": "control_volumen", "parametro": "subir"},
+    {"intencion": "bajar_volumen", "frases": ["baja el volumen", "bajar volumen", "disminuir volumen"], "accion": "control_volumen", "parametro": "bajar"},
+    {"intencion": "silenciar", "frases": ["silenciar", "silencia el sonido", "mutear"], "accion": "control_volumen", "parametro": "mute"},
+    {"intencion": "bloquear_sesion", "frases": ["bloquear sesion", "bloquear la sesion", "bloquear pantalla", "bloquea el equipo"], "accion": "bloquear_sesion", "parametro": null},
+    {"intencion": "apagar_equipo", "frases": ["apagar el equipo", "apagar computador", "apaga el pc"], "accion": "apagar_equipo", "parametro": null},
+    {"intencion": "detener_sistema", "frases": ["detener sistema", "para el sistema", "detente", "cancelar"], "accion": "detener", "parametro": null},
+
+    {"intencion": "navegar_abajo", "frases": ["baja", "abajo", "bajar pagina", "desplazar abajo"], "accion": "navegar", "parametro": "abajo"},
+    {"intencion": "navegar_arriba", "frases": ["sube", "arriba", "subir pagina", "desplazar arriba"], "accion": "navegar", "parametro": "arriba"},
+    {"intencion": "navegar_siguiente", "frases": ["siguiente", "sigue", "avanza", "avanzar elemento"], "accion": "navegar", "parametro": "siguiente"},
+    {"intencion": "navegar_anterior", "frases": ["anterior", "atras elemento", "retrocede elemento"], "accion": "navegar", "parametro": "anterior"},
+    {"intencion": "navegar_entrar", "frases": ["entrar", "entra", "selecciona esto", "confirmar"], "accion": "navegar", "parametro": "entrar"},
+    {"intencion": "navegar_atras_pagina", "frases": ["atras", "regresa", "pagina anterior", "vuelve"], "accion": "navegar", "parametro": "atras_pagina"},
+    {"intencion": "navegar_adelante_pagina", "frases": ["pagina siguiente", "avanza pagina"], "accion": "navegar", "parametro": "adelante_pagina"},
+    {"intencion": "leer_pantalla", "frases": ["lee", "leer", "que dice", "leer esto", "que es esto"], "accion": "leer_pantalla", "parametro": null}
+  ],
+  "comandos_dinamicos": [
     {
-      "intencion": "abrir_navegador",
-      "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"],
-      "accion": "abrir_app",
-      "parametro": "chrome"
-    },
-    {
-      "intencion": "abrir_bloc_notas",
-      "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"],
-      "accion": "abrir_app",
-      "parametro": "notepad"
-    },
-    {
-      "intencion": "abrir_calculadora",
-      "frases": ["abrir calculadora", "abre la calculadora"],
-      "accion": "abrir_app",
-      "parametro": "calc"
-    },
-    {
-      "intencion": "buscar_web",
-      "frases": ["buscar en internet", "abrir google", "abre google"],
-      "accion": "abrir_url",
-      "parametro": "https://www.google.com"
-    },
-    {
-      "intencion": "subir_volumen",
-      "frases": ["sube el volumen", "subir volumen", "aumentar volumen"],
-      "accion": "control_volumen",
-      "parametro": "subir"
-    },
-    {
-      "intencion": "bajar_volumen",
-      "frases": ["baja el volumen", "bajar volumen", "disminuir volumen"],
-      "accion": "control_volumen",
-      "parametro": "bajar"
-    },
-    {
-      "intencion": "silenciar",
-      "frases": ["silenciar", "silencia el sonido", "mutear"],
-      "accion": "control_volumen",
-      "parametro": "mute"
-    },
-    {
-      "intencion": "bloquear_sesion",
-      "frases": ["bloquear sesion", "bloquear la sesion", "bloquear pantalla", "bloquea el equipo"],
-      "accion": "bloquear_sesion",
-      "parametro": null
-    },
-    {
-      "intencion": "apagar_equipo",
-      "frases": ["apagar el equipo", "apagar computador", "apaga el pc"],
-      "accion": "apagar_equipo",
-      "parametro": null
-    },
-    {
-      "intencion": "detener_sistema",
-      "frases": ["detener sistema", "para el sistema", "detente", "cancelar"],
-      "accion": "detener",
-      "parametro": null
+      "intencion": "buscar_google_query",
+      "accion": "buscar_google",
+      "tipo_parametro": "texto",
+      "patrones": [
+        "^busca(?:r)? en google (.+)$",
+        "^busca(?:r)? (.+)$",
+        "^google (.+)$"
+      ]
     }
   ]
 }
