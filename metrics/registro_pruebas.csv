@@ -21,3 +21,86 @@ timestamp,texto_reconocido,intencion,confianza,reconocido,accion,parametro,exito
 2026-08-19T18:21:39,lee,leer_pantalla,1.0,True,leer_pantalla,,True,que la flor de la villa me só (Español medieval),3930.63
 2026-08-19T18:22:30,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,115.81
 2026-08-19T18:23:46,no hacía falta que hicieras eso honestamente,,0.414,False,,,False,,3.3
+2026-08-22T18:26:10,busca bogotá clima,,0.387,False,,,False,,8.22
+2026-08-22T18:26:22,busca clima bogotá,,0.462,False,,,False,,1.54
+2026-08-22T18:28:00,intérprete,,0.556,False,,,False,,1.56
+2026-08-22T18:32:52,busca clima bogotá,buscar_google_query,1.0,True,buscar_google,clima bogota,True,Buscando en Google: clima bogota,1529.26
+2026-08-22T18:33:12,busca clima bogotá,buscar_google_query,1.0,True,buscar_google,clima bogota,True,Buscando en Google: clima bogota,1005.99
+2026-08-22T18:33:24,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,109.55
+2026-08-22T18:33:31,busca clima bogotá,buscar_google_query,1.0,True,buscar_google,clima bogota,True,Buscando en Google: clima bogota,1009.17
+2026-08-22T18:33:37,busca a pokémon,buscar_google_query,1.0,True,buscar_google,a pokemon,True,Buscando en Google: a pokemon,924.27
+2026-08-22T18:33:47,busca cuánto es dos más dos,buscar_google_query,1.0,True,buscar_google,cuanto es dos mas dos,True,Buscando en Google: cuanto es dos mas dos,1291.04
+2026-08-22T18:33:55,busca la raíz cuadrada de cuatro,buscar_google_query,1.0,True,buscar_google,la raiz cuadrada de cuatro,True,Buscando en Google: la raiz cuadrada de cuatro,1448.11
+2026-08-22T18:34:16,busca mathematics dos ve,buscar_google_query,1.0,True,buscar_google,mathematics dos ve,True,Buscando en Google: mathematics dos ve,1179.14
+2026-08-22T18:34:25,busca abecedario,buscar_google_query,1.0,True,buscar_google,abecedario,True,Buscando en Google: abecedario,944.95
+2026-08-22T18:34:37,busca teniendo en cuenta la organizativa de instauración esta organización es correcta,buscar_google_query,1.0,True,buscar_google,teniendo en cuenta la organizativa de instauracion esta organizacion es correcta,True,Buscando en Google: teniendo en cuenta la organizativa de instauracion esta organizacion es correcta,3108.16
+2026-08-22T18:34:56,busca teniendo en cuenta la forma logística esta conversación la conversación en sí es correcta considerando lo que estoy diciendo actualmente,buscar_google_query,1.0,True,buscar_google,teniendo en cuenta la forma logistica esta conversacion la conversacion en si es correcta considerando lo que estoy diciendo actualmente,True,Buscando en Google: teniendo en cuenta la forma logistica esta conversacion la conversacion en si es correcta considerando lo que estoy diciendo actualmente,4853.16
+2026-08-22T18:35:05,perfecto,,0.588,False,,,False,,1.37
+2026-08-22T18:35:07,baja,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,107.27
+2026-08-22T18:35:11,baja,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,101.93
+2026-08-22T18:35:14,sube,navegar_arriba,1.0,True,navegar,arriba,True,Navegación ejecutada: arriba,115.44
+2026-08-22T18:35:17,sube,navegar_arriba,1.0,True,navegar,arriba,True,Navegación ejecutada: arriba,109.51
+2026-08-22T18:35:24,busca cómo instalar windows dos,buscar_google_query,1.0,True,buscar_google,como instalar windows dos,True,Buscando en Google: como instalar windows dos,1404.56
+2026-08-22T18:35:30,bien perfecta,,0.455,False,,,False,,1.36
+2026-08-22T18:36:02,busca configuración predeterminada,buscar_google_query,1.0,True,buscar_google,configuracion predeterminada,True,Buscando en Google: configuracion predeterminada,1490.9
+2026-08-22T18:36:09,busca bajando hacia la atmósfera,buscar_google_query,1.0,True,buscar_google,bajando hacia la atmosfera,True,Buscando en Google: bajando hacia la atmosfera,1425.99
+2026-08-22T18:36:18,busca ella es muy baja,buscar_google_query,1.0,True,buscar_google,ella es muy baja,True,Buscando en Google: ella es muy baja,1113.2
+2026-08-22T18:37:01,busca youtube three idiots,buscar_google_query,1.0,True,buscar_google,youtube three idiots,True,Buscando en Google: youtube three idiots,1244.87
+2026-08-22T18:37:05,es mi negra,,0.5,False,,,False,,1.46
+2026-08-23T13:50:07,escribe eras una vez,,0.486,False,,,False,,9.02
+2026-08-23T13:50:29,inscribe hola cómo estás,,0.462,False,,,False,,17.46
+2026-08-23T13:51:34,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,120.05
+2026-08-23T13:51:44,busca un conocedor de que con su nacimiento,buscar_google_query,1.0,True,buscar_google,un conocedor de que con su nacimiento,True,Buscando en Google: un conocedor de que con su nacimiento,2260.12
+2026-08-23T13:51:55,selecciona,navegar_entrar,0.8,True,navegar,entrar,True,Navegación ejecutada: entrar,115.77
+2026-08-23T13:52:21,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Elemento sin texto legible,3460.93
+2026-08-23T13:52:35,lee,leer_pantalla,1.0,True,leer_pantalla,,True,Working Preacher from Luther Seminary - Comentario del San Mateo 2:1-12 - Working Preacher. Resultados relacionados,8672.51
+2026-08-23T13:54:40,ahora google,buscar_web,0.783,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,118.26
+2026-08-23T13:54:48,busca matemática simple,buscar_google_query,1.0,True,buscar_google,matematica simple,True,Buscando en Google: matematica simple,1395.32
+2026-08-23T13:55:01,escribe cuatro palabras y siete oraciones,escribir_texto_dictado,1.0,True,escribir_texto,cuatro palabras y siete oraciones,True,Texto escrito: cuatro palabras y siete oraciones,370.92
+2026-08-23T13:55:37,escribe aunque un aman nada hemos traído a este mundo sin embargo nada podemos sacar así que teniendo obligación y abrigo estemos contentos con esto,escribir_texto_dictado,1.0,True,escribir_texto,aunque un aman nada hemos traido a este mundo sin embargo nada podemos sacar asi que teniendo obligacion y abrigo estemos contentos con esto,True,Texto escrito: aunque un aman nada hemos traido a este mundo sin embargo nada podemos sacar asi que teniendo obligacion y abrigo estemos contentos con esto,359.71
+2026-08-23T13:56:17,screen pero el hombre natural no acepta las cosas del espíritu de dios porque para él su necesidad y no las entender porque se disciernen espiritualmente se está refiriendo a una persona que no ha nacido de nuevo,,0.052,False,,,False,,3.23
+2026-08-23T13:56:26,mr,,0.5,False,,,False,,1.32
+2026-08-23T13:56:40,escribe pero el nombre natural no acepta las cosas del espíritu de dios porque es la él son necedad y no las pueden entender,escribir_texto_dictado,1.0,True,escribir_texto,pero el nombre natural no acepta las cosas del espiritu de dios porque es la el son necedad y no las pueden entender,True,Texto escrito: pero el nombre natural no acepta las cosas del espiritu de dios porque es la el son necedad y no las pueden entender,361.7
+2026-08-23T13:56:47,como fuesen las comas,,0.41,False,,,False,,2.44
+2026-08-23T13:57:10,escribe siguiendo la pauta doce cincuenta y siete se le da la información de que dichos documentos invalidado debido a su falta de ortografía gráfica y experimental en este proyecto,escribir_texto_dictado,1.0,True,escribir_texto,siguiendo la pauta doce cincuenta y siete se le da la informacion de que dichos documentos invalidado debido a su falta de ortografia grafica y experimental en este proyecto,True,Texto escrito: siguiendo la pauta doce cincuenta y siete se le da la informacion de que dichos documentos invalidado debido a su falta de ortografia grafica y experimental en este proyecto,367.06
+2026-08-23T13:57:26,siguiendo las pautas doce cincuenta y siete poseen dieciocho segmentos variados de ideas queden invalidados instituto hockey hielo,,0.209,False,,,False,,4.89
+2026-08-23T14:01:11,stop,,0.462,False,,,False,,3.69
+2026-08-23T14:40:43,libro de giovanni,,0.516,False,,,False,,3.64
+2026-08-23T14:44:04,pues,,0.444,False,,,False,,1.57
+2026-08-23T14:44:19,río,,0.545,False,,,False,,1.58
+2026-08-23T14:54:37,la reina,,0.571,False,,,False,,1.95
+2026-08-23T14:58:28,muchos podrían representar ocasión en purgatorio,,0.369,False,,,False,,4.41
+2026-08-23T14:58:50,creo que es lo primero que se nos viene a la mía ebook en el que una persona debe hacer múltiples veces la misma cosa hasta salir de en la mayoría de las veces el protagonista siempre aprende una lección y le enseñan a ser mejor persona en este caso con pronto lo volvieron más sensible con los bebés y lo convencieron de ser papá esto pudo ser una prueba para que aprendiera a ser mejor persona y el ejemplo claro,,0.033,False,,,False,,4.68
+2026-08-23T14:58:58,es que salvó al niño del agua que no se ve cuando sale de la estación solamente,,0.277,False,,,False,,4.13
+2026-08-24T16:28:55,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,167.17
+2026-08-24T16:29:01,búsqueda indicios de animal,,0.457,False,,,False,,6.85
+2026-08-24T16:29:11,busca animales,buscar_google_query,1.0,True,buscar_google,animales,True,Buscando en Google: animales,1260.0
+2026-08-24T16:31:07,venga,,0.6,False,,,False,,1.62
+2026-08-24T16:40:21,galopa,,0.5,False,,,False,,2.2
+2026-08-24T16:40:28,hola wilson gerena cómo estás,,0.4,False,,,False,,2.91
+2026-08-24T16:40:36,acá normal no mucho lo de siempre estoy esperando a que llegue una cosita que tengo que esperar a mi proyecto de grado,,0.209,False,,,False,,6.65
+2026-08-24T16:40:49,qué más has hecho su actividad como lo de siempre pa lo de las red de vía lo de la entrevista ha pasado mucho más estaba ocupado con cosas de universidad,,0.187,False,,,False,,7.61
+2026-08-24T16:40:53,pero no te han llamado mantenerse en pie,,0.4,False,,,False,,6.87
+2026-08-24T16:40:56,cepa luego no me ha dicho nada,,0.409,False,,,False,,5.82
+2026-08-24T16:41:05,qué estás esperando para el proyecto estoy esperando una clase que es donde voy a mostrar más o menos como hoy,,0.248,False,,,False,,7.96
+2026-08-24T16:41:08,lo sabía,,0.476,False,,,False,,2.57
+2026-08-24T16:41:14,se van haciendo estragos cepa,,0.455,False,,,False,,2.73
+2026-08-24T16:41:23,pues no pero qué más te digo todos los días estoy tratando de conseguir yo mismo te dije cuando consiga algo te aviso,,0.232,False,,,False,,4.66
+2026-08-24T16:41:24,sí yo sé,,0.476,False,,,False,,3.45
+2026-08-24T16:41:34,te preguntas cómo te ha ido has hablado con tu ser no no no no no no lo que me has preguntado es cómo me ha ido y consiguió un trabajo,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,113.54
+2026-08-24T16:41:37,has hablado con ellos,,0.4,False,,,False,,2.57
+2026-08-24T16:41:42,ella está por ahí al menos le hablé y me voy,,0.328,False,,,False,,3.71
+2026-08-24T16:41:44,bueno,,0.444,False,,,False,,1.88
+2026-08-24T16:41:51,la has contado si yo te cuento si consigo algo vale,,0.328,False,,,False,,3.32
+2026-08-24T16:41:53,vale cuidate myers,,0.485,False,,,False,,3.76
+2026-08-24T16:42:03,todos esperan algo de mí pero qué putas puedo hacer yo tengo que esperar a ver si mi le imputa trabajo para ti,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,105.41
+2026-08-24T16:42:08,todos ahí quieren que me largue yo qué más puedo hacer,,0.338,False,,,False,,4.29
+2026-08-24T16:42:20,como si pudiera ser algo más todo el día ocupado para dictar mary keane y espeso no será que estás haciendo esos,,0.256,False,,,False,,7.12
+2026-08-24T16:42:24,son horribles,,0.421,False,,,False,,2.12
+2026-08-24T16:42:34,dime,,0.5,False,,,False,,1.93
+2026-08-24T16:43:26,la pasas bien,,0.5,False,,,False,,2.17
+2026-08-24T16:43:37,remediarlo,,0.5,False,,,False,,2.98
+2026-08-24T16:49:42,tenía sus,,0.5,False,,,False,,2.21
+2026-08-24T16:52:40,dime qué deseas,,0.615,False,,,False,,2.3
+2026-08-24T16:52:51,richard,,0.526,False,,,False,,2.48
+2026-08-24T17:06:32,vale,,0.571,False,,,False,,8.35

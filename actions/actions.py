@@ -10,6 +10,7 @@ APPS_DISPONIBLES = {
     "chrome": "start chrome",
     "notepad": "notepad.exe",
     "calc": "calc.exe",
+    "word": "start winword",
 }
 
 VK_VOLUME_MUTE = 0xAD
@@ -48,11 +49,13 @@ class EjecutorAcciones:
             elif accion == "detener":
                 return True, "DETENER_SISTEMA"
             elif accion == "buscar_google":
-                return False, "Acción 'buscar_google' aún no implementada"
+                return self._buscar_google(parametro)
             elif accion == "navegar":
                 return self._navegar(parametro)
             elif accion == "leer_pantalla":
                 return self._leer_pantalla()
+            elif accion == "escribir_texto":
+                return self._escribir_texto(parametro)
             else:
                 return False, f"Acción no reconocida: {accion}"
         except Exception as e:
@@ -93,18 +96,26 @@ class EjecutorAcciones:
         try:
             navegador = self._obtener_navegador_asistido()
         except Exception as e:
-            return False, (
-                "No se pudo cargar el módulo de navegación. "
-                f"¿Instalaste pyautogui? Detalle: {e}"
-            )
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
         return navegador.navegar(comando)
+
+    def _buscar_google(self, consulta: str):
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
+        return navegador.buscar_google(consulta)
 
     def _leer_pantalla(self):
         try:
             navegador = self._obtener_navegador_asistido()
         except Exception as e:
-            return False, (
-                "No se pudo cargar el módulo de navegación. "
-                f"¿Instalaste pyttsx3 y pywinauto? Detalle: {e}"
-            )
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
         return navegador.leer_elemento_enfocado()
+
+    def _escribir_texto(self, texto: str):
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de navegación. ¿Instalaste pyperclip? Detalle: {e}"
+        return navegador.escribir_texto(texto)

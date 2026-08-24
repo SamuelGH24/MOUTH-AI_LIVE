@@ -1,9 +1,9 @@
 """
 Interfaz Gráfica - Mouth AI Live
 
-Permite al usuario iniciar, detener y monitorear el sistema de reconocimiento
-de voz sin usar la terminal. El reconocimiento corre en un hilo separado
-para no congelar la ventana mientras escucha.
+Diseño "manos libres": el sistema empieza a escuchar automáticamente en
+cuanto termina de cargar el modelo, sin necesitar que alguien haga clic en
+un botón.
 
 Ejecutar desde la raíz del proyecto:
     python gui/app.py
@@ -73,7 +73,7 @@ class MouthAILiveGUI:
         self.boton_iniciar.grid(row=0, column=0, padx=8)
 
         self.boton_detener = tk.Button(
-            marco_botones, text="■ Detener", width=15, height=2,
+            marco_botones, text="■ Pausar", width=15, height=2,
             command=self.detener, state=tk.DISABLED, bg="#F5DFDF",
         )
         self.boton_detener.grid(row=0, column=1, padx=8)
@@ -109,13 +109,14 @@ class MouthAILiveGUI:
                 self.registrador = RegistradorMetricas()
                 self.modelo_listo = True
                 self.cola_mensajes.put(("estado_listo", None))
+                self.cola_mensajes.put(("auto_iniciar", None))
             except Exception as e:
                 self.cola_mensajes.put(("error", f"No se pudo cargar el modelo: {e}"))
 
         threading.Thread(target=tarea, daemon=True).start()
 
     def iniciar(self):
-        if not self.modelo_listo:
+        if not self.modelo_listo or (self.hilo_escucha is not None and self.hilo_escucha.is_alive()):
             return
 
         self.evento_detener.clear()
@@ -129,11 +130,14 @@ class MouthAILiveGUI:
     def detener(self):
         self.evento_detener.set()
         self.boton_detener.config(state=tk.DISABLED)
-        self.etiqueta_estado.config(text="Deteniendo...", fg="#CC7A00")
+        self.etiqueta_estado.config(text="Pausando...", fg="#CC7A00")
 
     def _bucle_escucha(self):
         try:
             self.asr.iniciar_microfono()
+
+            def callback_error(mensaje):
+                self.cola_mensajes.put(("log", f"⚠️ {mensaje}"))
 
             def callback(texto):
                 self.registrador.iniciar_medicion()
@@ -165,6 +169,7 @@ class MouthAILiveGUI:
             self.asr.escuchar_y_transcribir(
                 callback_texto=callback,
                 evento_detener=self.evento_detener,
+                callback_error=callback_error,
             )
         except Exception as e:
             self.cola_mensajes.put(("error", f"Error durante la escucha: {e}"))
@@ -179,16 +184,18 @@ class MouthAILiveGUI:
                 if tipo == "log":
                     self._escribir_log(contenido)
                 elif tipo == "estado_listo":
-                    self.etiqueta_estado.config(text="Listo. Presiona Iniciar.", fg="#1A6FCC")
                     self.boton_iniciar.config(state=tk.NORMAL)
-                    self._escribir_log("[Sistema] Modelo cargado. Listo para iniciar.")
+                    self._escribir_log("[Sistema] Modelo cargado.")
+                elif tipo == "auto_iniciar":
+                    self._escribir_log("[Sistema] Iniciando escucha automáticamente (sin necesitar clic)...")
+                    self.iniciar()
                 elif tipo == "error":
                     self._escribir_log(f"❌ {contenido}")
                     messagebox.showerror("Mouth AI Live - Error", contenido)
                 elif tipo == "detenido":
                     self.boton_iniciar.config(state=tk.NORMAL)
                     self.boton_detener.config(state=tk.DISABLED)
-                    self.etiqueta_estado.config(text="Detenido. Presiona Iniciar.", fg="#CC7A00")
+                    self.etiqueta_estado.config(text="En pausa. Di un comando o presiona Iniciar.", fg="#CC7A00")
                     self._escribir_log("[Sistema] Escucha detenida.")
         except queue.Empty:
             pass

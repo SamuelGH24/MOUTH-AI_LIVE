@@ -2,6 +2,7 @@
   "comandos": [
     {"intencion": "abrir_navegador", "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"], "accion": "abrir_app", "parametro": "chrome"},
     {"intencion": "abrir_bloc_notas", "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"], "accion": "abrir_app", "parametro": "notepad"},
+    {"intencion": "abrir_word", "frases": ["abrir word", "abre word", "abrir documento de word"], "accion": "abrir_app", "parametro": "word"},
     {"intencion": "abrir_calculadora", "frases": ["abrir calculadora", "abre la calculadora"], "accion": "abrir_app", "parametro": "calc"},
     {"intencion": "buscar_web", "frases": ["abrir google", "abre google"], "accion": "abrir_url", "parametro": "https://www.google.com"},
     {"intencion": "subir_volumen", "frases": ["sube el volumen", "subir volumen", "aumentar volumen"], "accion": "control_volumen", "parametro": "subir"},
@@ -18,7 +19,14 @@
     {"intencion": "navegar_entrar", "frases": ["entrar", "entra", "selecciona esto", "confirmar"], "accion": "navegar", "parametro": "entrar"},
     {"intencion": "navegar_atras_pagina", "frases": ["atras", "regresa", "pagina anterior", "vuelve"], "accion": "navegar", "parametro": "atras_pagina"},
     {"intencion": "navegar_adelante_pagina", "frases": ["pagina siguiente", "avanza pagina"], "accion": "navegar", "parametro": "adelante_pagina"},
-    {"intencion": "leer_pantalla", "frases": ["lee", "leer", "que dice", "leer esto", "que es esto"], "accion": "leer_pantalla", "parametro": null}
+    {"intencion": "leer_pantalla", "frases": ["lee", "leer", "que dice", "leer esto", "que es esto"], "accion": "leer_pantalla", "parametro": null},
+
+    {"intencion": "nueva_linea", "frases": ["nueva linea", "salto de linea", "punto y aparte"], "accion": "navegar", "parametro": "entrar"},
+    {"intencion": "borrar_letra", "frases": ["borra", "borrar", "elimina eso", "borra letra"], "accion": "navegar", "parametro": "borrar"},
+    {"intencion": "borrar_palabra", "frases": ["borra palabra", "borrar palabra", "elimina la palabra"], "accion": "navegar", "parametro": "borrar_palabra"},
+    {"intencion": "guardar_documento", "frases": ["guarda", "guardar", "guardar documento", "guarda el documento"], "accion": "navegar", "parametro": "guardar"},
+    {"intencion": "deshacer_cambio", "frases": ["deshacer", "deshaz eso", "deshacer cambio"], "accion": "navegar", "parametro": "deshacer"},
+    {"intencion": "seleccionar_todo", "frases": ["selecciona todo", "seleccionar todo", "marca todo"], "accion": "navegar", "parametro": "seleccionar_todo"}
   ],
   "comandos_dinamicos": [
     {
@@ -29,6 +37,16 @@
         "^busca(?:r)? en google (.+)$",
         "^busca(?:r)? (.+)$",
         "^google (.+)$"
+      ]
+    },
+    {
+      "intencion": "escribir_texto_dictado",
+      "accion": "escribir_texto",
+      "tipo_parametro": "texto",
+      "patrones": [
+        "^escribe (.+)$",
+        "^escribir (.+)$",
+        "^dicta (.+)$"
       ]
     }
   ]
