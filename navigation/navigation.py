@@ -131,6 +131,9 @@ class NavegadorAsistido:
             self._hablar("Ocurrió un error al intentar leer")
             return False, mensaje
 
+    def hablar(self, texto: str):
+        """Método público para que otros módulos (ej. actions.py) pidan narrar algo."""
+        self._hablar(texto)
     def _hablar(self, texto: str):
         try:
             motor = pyttsx3.init()

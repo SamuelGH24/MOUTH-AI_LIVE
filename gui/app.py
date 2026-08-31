@@ -1,9 +1,12 @@
 """
 Interfaz Gráfica - Mouth AI Live
 
-Diseño "manos libres": el sistema empieza a escuchar automáticamente en
-cuanto termina de cargar el modelo, sin necesitar que alguien haga clic en
-un botón.
+Diseño "manos libres" (v2 - corregido):
+- El micrófono se abre UNA sola vez al arrancar y se queda escuchando
+  todo el tiempo que la app esté abierta. Nunca se cierra por "pausar".
+- "Pausar" (por botón o diciendo "detente") NO apaga el micrófono, solo
+  hace que el sistema ignore los comandos, excepto "reanuda"/"continúa".
+  Esto es lo que permite reanudar por voz de verdad, sin mouse.
 
 Ejecutar desde la raíz del proyecto:
     python gui/app.py
@@ -38,7 +41,8 @@ class MouthAILiveGUI:
         self.root.resizable(False, False)
 
         self.cola_mensajes = queue.Queue()
-        self.evento_detener = threading.Event()
+        self.evento_cerrar_app = threading.Event()
+        self.pausado = threading.Event()
         self.hilo_escucha = None
 
         self.asr = None
@@ -67,14 +71,14 @@ class MouthAILiveGUI:
         marco_botones.pack()
 
         self.boton_iniciar = tk.Button(
-            marco_botones, text="▶ Iniciar", width=15, height=2,
-            command=self.iniciar, state=tk.DISABLED, bg="#DFF5DF",
+            marco_botones, text="Reanudar", width=15, height=2,
+            command=self.reanudar, state=tk.DISABLED, bg="#DFF5DF",
         )
         self.boton_iniciar.grid(row=0, column=0, padx=8)
 
         self.boton_detener = tk.Button(
-            marco_botones, text="■ Pausar", width=15, height=2,
-            command=self.detener, state=tk.DISABLED, bg="#F5DFDF",
+            marco_botones, text="Pausar", width=15, height=2,
+            command=self.pausar, state=tk.DISABLED, bg="#F5DFDF",
         )
         self.boton_detener.grid(row=0, column=1, padx=8)
 
@@ -94,7 +98,7 @@ class MouthAILiveGUI:
         tk.Button(marco_inferior, text="Limpiar registro", command=self._limpiar_log).grid(
             row=0, column=0, padx=5
         )
-        tk.Button(marco_inferior, text="📊 Ver resumen de métricas", command=self._mostrar_resumen).grid(
+        tk.Button(marco_inferior, text="Ver resumen de metricas", command=self._mostrar_resumen).grid(
             row=0, column=1, padx=5
         )
 
@@ -115,66 +119,72 @@ class MouthAILiveGUI:
 
         threading.Thread(target=tarea, daemon=True).start()
 
-    def iniciar(self):
-        if not self.modelo_listo or (self.hilo_escucha is not None and self.hilo_escucha.is_alive()):
+    def _iniciar_escucha_permanente(self):
+        if self.hilo_escucha is not None and self.hilo_escucha.is_alive():
             return
-
-        self.evento_detener.clear()
-        self.boton_iniciar.config(state=tk.DISABLED)
-        self.boton_detener.config(state=tk.NORMAL)
-        self.etiqueta_estado.config(text="🎤 Escuchando...", fg="#1A8F1A")
-
         self.hilo_escucha = threading.Thread(target=self._bucle_escucha, daemon=True)
         self.hilo_escucha.start()
+        self.boton_iniciar.config(state=tk.NORMAL)
+        self.boton_detener.config(state=tk.NORMAL)
 
-    def detener(self):
-        self.evento_detener.set()
-        self.boton_detener.config(state=tk.DISABLED)
-        self.etiqueta_estado.config(text="Pausando...", fg="#CC7A00")
+    def reanudar(self):
+        self.pausado.clear()
+        self.etiqueta_estado.config(text="Escuchando...", fg="#1A8F1A")
+        self._escribir_log("[Sistema] Reanudado.")
+
+    def pausar(self):
+        self.pausado.set()
+        self.etiqueta_estado.config(text="En pausa. Di 'reanuda' o presiona Reanudar.", fg="#CC7A00")
+        self._escribir_log("[Sistema] En pausa (el microfono sigue escuchando 'reanuda').")
 
     def _bucle_escucha(self):
         try:
             self.asr.iniciar_microfono()
 
             def callback_error(mensaje):
-                self.cola_mensajes.put(("log", f"⚠️ {mensaje}"))
+                self.cola_mensajes.put(("log", f"Aviso: {mensaje}"))
 
             def callback(texto):
-                self.registrador.iniciar_medicion()
-                self.cola_mensajes.put(("log", f"🎤 Reconocido: '{texto}'"))
+                self.cola_mensajes.put(("log", f"Reconocido: '{texto}'"))
                 resultado = self.interprete.interpretar(texto)
 
                 if not resultado.reconocido:
                     self.cola_mensajes.put(
-                        ("log", f"   ⚠️ Sin comando válido (confianza {resultado.confianza:.2f})")
+                        ("log", f"   Sin comando valido (confianza {resultado.confianza:.2f})")
                     )
-                    self.registrador.finalizar_y_registrar(texto, resultado, False, "")
+                    if self.registrador is not None:
+                        self.registrador.finalizar_y_registrar(texto, resultado, False, "")
                     return
 
+                if self.pausado.is_set() and resultado.intencion != "reanudar_escucha":
+                    self.cola_mensajes.put(("log", "   (En pausa - di 'reanuda' para continuar)"))
+                    return
+
+                self.registrador.iniciar_medicion()
                 self.cola_mensajes.put(
-                    ("log", f"   ✅ Intención: {resultado.intencion} "
+                    ("log", f"   Intencion: {resultado.intencion} "
                             f"(confianza {resultado.confianza:.2f})")
                 )
                 exito, mensaje = self.ejecutor.ejecutar(resultado.accion, resultado.parametro)
                 self.registrador.finalizar_y_registrar(texto, resultado, exito, mensaje)
 
-                if mensaje == "DETENER_SISTEMA":
-                    self.cola_mensajes.put(("log", "   🛑 Comando de detener recibido por voz."))
-                    self.evento_detener.set()
+                if mensaje == "PAUSAR_SISTEMA":
+                    self.cola_mensajes.put(("pausar_ui", None))
+                    return
+                if mensaje == "REANUDAR_SISTEMA":
+                    self.cola_mensajes.put(("reanudar_ui", None))
                     return
 
-                simbolo = "✔️" if exito else "❌"
-                self.cola_mensajes.put(("log", f"   {simbolo} {mensaje}"))
+                simbolo = "OK" if exito else "FALLO"
+                self.cola_mensajes.put(("log", f"   {simbolo}: {mensaje}"))
 
             self.asr.escuchar_y_transcribir(
                 callback_texto=callback,
-                evento_detener=self.evento_detener,
+                evento_detener=self.evento_cerrar_app,
                 callback_error=callback_error,
             )
         except Exception as e:
             self.cola_mensajes.put(("error", f"Error durante la escucha: {e}"))
-        finally:
-            self.cola_mensajes.put(("detenido", None))
 
     def _revisar_cola_mensajes(self):
         try:
@@ -184,19 +194,18 @@ class MouthAILiveGUI:
                 if tipo == "log":
                     self._escribir_log(contenido)
                 elif tipo == "estado_listo":
-                    self.boton_iniciar.config(state=tk.NORMAL)
                     self._escribir_log("[Sistema] Modelo cargado.")
                 elif tipo == "auto_iniciar":
-                    self._escribir_log("[Sistema] Iniciando escucha automáticamente (sin necesitar clic)...")
-                    self.iniciar()
+                    self._escribir_log("[Sistema] Iniciando escucha permanente...")
+                    self._iniciar_escucha_permanente()
+                    self.etiqueta_estado.config(text="Escuchando...", fg="#1A8F1A")
+                elif tipo == "pausar_ui":
+                    self.pausar()
+                elif tipo == "reanudar_ui":
+                    self.reanudar()
                 elif tipo == "error":
-                    self._escribir_log(f"❌ {contenido}")
+                    self._escribir_log(f"ERROR: {contenido}")
                     messagebox.showerror("Mouth AI Live - Error", contenido)
-                elif tipo == "detenido":
-                    self.boton_iniciar.config(state=tk.NORMAL)
-                    self.boton_detener.config(state=tk.DISABLED)
-                    self.etiqueta_estado.config(text="En pausa. Di un comando o presiona Iniciar.", fg="#CC7A00")
-                    self._escribir_log("[Sistema] Escucha detenida.")
         except queue.Empty:
             pass
 
@@ -215,20 +224,18 @@ class MouthAILiveGUI:
 
     def _mostrar_resumen(self):
         if self.registrador is None:
-            messagebox.showinfo("Mouth AI Live", "El sistema todavía no ha cargado. Espera un momento.")
+            messagebox.showinfo("Mouth AI Live", "El sistema todavia no ha cargado. Espera un momento.")
             return
-
         resumen = self.registrador.generar_resumen()
         if resumen is None:
-            messagebox.showinfo("Mouth AI Live", "Todavía no hay pruebas registradas.")
+            messagebox.showinfo("Mouth AI Live", "Todavia no hay pruebas registradas.")
             return
-
         texto = (
             f"Total de intentos: {resumen['total_intentos']}\n"
             f"Reconocidos: {resumen['reconocidos']} | No reconocidos: {resumen['no_reconocidos']}\n"
             f"Tasa de reconocimiento exitoso: {resumen['tasa_reconocimiento_pct']}%\n"
             f"Tasa de error: {resumen['tasa_error_pct']}%\n"
-            f"Tasa de éxito en ejecución: {resumen['tasa_exito_ejecucion_pct']}%\n"
+            f"Tasa de exito en ejecucion: {resumen['tasa_exito_ejecucion_pct']}%\n"
         )
         if resumen["tiempo_respuesta_promedio_ms"] is not None:
             texto += (
@@ -236,11 +243,10 @@ class MouthAILiveGUI:
                 f"Tiempo de respuesta mediana: {resumen['tiempo_respuesta_mediana_ms']} ms\n"
             )
         texto += f"\nArchivo CSV: {self.registrador.ruta_csv}"
-
-        messagebox.showinfo("Resumen de métricas", texto)
+        messagebox.showinfo("Resumen de metricas", texto)
 
     def _al_cerrar(self):
-        self.evento_detener.set()
+        self.evento_cerrar_app.set()
         self.root.destroy()
 
 

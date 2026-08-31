@@ -1,4 +1,5 @@
 import ctypes
+import json
 import subprocess
 import sys
 import webbrowser
@@ -19,10 +20,13 @@ VK_VOLUME_UP = 0xAF
 KEYEVENTF_EXTENDEDKEY = 0x0001
 KEYEVENTF_KEYUP = 0x0002
 
+RUTA_CONFIG_POR_DEFECTO = Path(__file__).parent.parent / "config" / "comandos.json"
+
 
 class EjecutorAcciones:
-    def __init__(self, modo_prueba: bool = MODO_PRUEBA):
+    def __init__(self, modo_prueba: bool = MODO_PRUEBA, ruta_config: str = None):
         self.modo_prueba = modo_prueba
+        self.ruta_config = Path(ruta_config) if ruta_config else RUTA_CONFIG_POR_DEFECTO
         self._navegador_asistido = None
 
     def _obtener_navegador_asistido(self):
@@ -47,7 +51,9 @@ class EjecutorAcciones:
             elif accion == "apagar_equipo":
                 return self._apagar_equipo()
             elif accion == "detener":
-                return True, "DETENER_SISTEMA"
+                return True, "PAUSAR_SISTEMA"
+            elif accion == "reanudar":
+                return True, "REANUDAR_SISTEMA"
             elif accion == "buscar_google":
                 return self._buscar_google(parametro)
             elif accion == "navegar":
@@ -56,6 +62,8 @@ class EjecutorAcciones:
                 return self._leer_pantalla()
             elif accion == "escribir_texto":
                 return self._escribir_texto(parametro)
+            elif accion == "listar_comandos":
+                return self._listar_comandos()
             else:
                 return False, f"Acción no reconocida: {accion}"
         except Exception as e:
@@ -119,3 +127,21 @@ class EjecutorAcciones:
         except Exception as e:
             return False, f"No se pudo cargar el módulo de navegación. ¿Instalaste pyperclip? Detalle: {e}"
         return navegador.escribir_texto(texto)
+
+    def _listar_comandos(self):
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de voz. Detalle: {e}"
+
+        try:
+            with open(self.ruta_config, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            texto_ayuda = data.get("ayuda_hablada", "No hay ayuda configurada todavía.")
+        except Exception as e:
+            texto_ayuda = "No se pudo cargar la lista de comandos."
+            navegador.hablar(texto_ayuda)
+            return False, f"Error leyendo comandos.json: {e}"
+
+        navegador.hablar(texto_ayuda)
+        return True, "Lista de comandos narrada por voz"

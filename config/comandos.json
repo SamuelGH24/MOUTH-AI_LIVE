@@ -1,4 +1,5 @@
 {
+  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, guarda, o deshacer. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para terminar, di detente.",
   "comandos": [
     {"intencion": "abrir_navegador", "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"], "accion": "abrir_app", "parametro": "chrome"},
     {"intencion": "abrir_bloc_notas", "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"], "accion": "abrir_app", "parametro": "notepad"},
@@ -26,7 +27,17 @@
     {"intencion": "borrar_palabra", "frases": ["borra palabra", "borrar palabra", "elimina la palabra"], "accion": "navegar", "parametro": "borrar_palabra"},
     {"intencion": "guardar_documento", "frases": ["guarda", "guardar", "guardar documento", "guarda el documento"], "accion": "navegar", "parametro": "guardar"},
     {"intencion": "deshacer_cambio", "frases": ["deshacer", "deshaz eso", "deshacer cambio"], "accion": "navegar", "parametro": "deshacer"},
-    {"intencion": "seleccionar_todo", "frases": ["selecciona todo", "seleccionar todo", "marca todo"], "accion": "navegar", "parametro": "seleccionar_todo"}
+    {"intencion": "seleccionar_todo", "frases": ["selecciona todo", "seleccionar todo", "marca todo"], "accion": "navegar", "parametro": "seleccionar_todo"},
+
+    {"intencion": "formato_negrita", "frases": ["negrita", "pon negrita", "activa negrita", "en negrita"], "accion": "navegar", "parametro": "negrita"},
+    {"intencion": "formato_cursiva", "frases": ["cursiva", "pon cursiva", "activa cursiva", "en cursiva", "italica"], "accion": "navegar", "parametro": "cursiva"},
+    {"intencion": "formato_subrayado", "frases": ["subrayado", "pon subrayado", "activa subrayado", "subraya"], "accion": "navegar", "parametro": "subrayado"},
+    {"intencion": "formato_letra_grande", "frases": ["letra mas grande", "aumentar letra", "agranda la letra"], "accion": "navegar", "parametro": "letra_grande"},
+    {"intencion": "formato_letra_pequena", "frases": ["letra mas pequena", "disminuir letra", "achica la letra"], "accion": "navegar", "parametro": "letra_pequena"},
+
+    {"intencion": "listar_comandos", "frases": ["que puedo decir", "ayuda", "que comandos hay", "que puedes hacer", "necesito ayuda"], "accion": "listar_comandos", "parametro": null},
+
+    {"intencion": "reanudar_escucha", "frases": ["reanuda", "reanudar", "continua", "continuar", "sigue escuchando"], "accion": "reanudar", "parametro": null}
   ],
   "comandos_dinamicos": [
     {
