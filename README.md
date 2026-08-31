@@ -2,7 +2,7 @@
 
 Prototipo de software modular basado en inteligencia artificial que permite
 controlar un computador mediante comandos de voz, con enfoque en accesibilidad
-para personas con limitaciones motrices o visuales. Proyecto de grado —
+para personas con discapacidad motriz y visual. Proyecto de grado —
 Universidad Antonio Nariño, Ingeniería de Sistemas y Computación.
 
 Autor: Samuel Gerena Huelgos
@@ -10,47 +10,58 @@ Director: Fabio Gonzales
 
 ## Estado actual del proyecto
 
-### ✅ Funcionando y probado (con micrófono real en Windows)
+### Funcionando y probado (con micrófono real en Windows)
 
 - **Captura de audio + ASR** (`asr/vosk_asr.py`): reconocimiento de voz en
-  tiempo real usando Vosk (modelo `vosk-model-es-0.42`).
+  tiempo real con Vosk. Corta frases largas automáticamente (3.5s) para
+  evitar que dos comandos dichos con poca pausa se mezclen en un solo texto.
+  Tolerante a fallos del micrófono (se reintenta solo, no cae el programa).
 - **Intérprete de comandos** (`interpreter/interpreter.py`): comandos fijos
-  y comandos dinámicos (texto variable extraído por expresiones regulares).
-- **Ejecución de acciones** (`actions/actions.py`): abrir aplicaciones,
-  abrir URLs, controlar volumen, bloquear sesión/apagar equipo (modo prueba).
-- **Interfaz gráfica** (`gui/app.py`): iniciar, detener y monitorear el
-  sistema con botones, sin depender de la terminal.
-- **Sistema de métricas** (`metrics/logger.py`): registra cada interacción
-  en un CSV y calcula tasas de reconocimiento/error automáticamente.
-- **Navegación asistida por voz** (`navigation/navigation.py`) — replicando
-  cómo ya navega alguien con un lector de pantalla (Tab/flechas/Enter):
-  - `sube` / `baja`: desplazamiento de página.
-  - `siguiente` / `anterior`: moverse entre elementos (Tab / Shift+Tab).
-  - `entra`: activa el elemento enfocado (Enter).
-  - `atras` / `pagina siguiente`: navegación de historial.
-  - `lee`: lee en voz alta (TTS vía `pyttsx3`) el elemento enfocado, usando
-    UI Automation de Windows (`uiautomation`) — la misma base que usan
-    lectores de pantalla reales como NVDA o JAWS.
-  - `busca [lo que sea]`: escribe la búsqueda en la barra de direcciones
-    y presiona Enter (mismo método que una persona con teclado).
+  y dinámicos (texto libre extraído por expresiones regulares).
+- **Ejecución de acciones** (`actions/actions.py`): abrir apps/URLs, volumen,
+  bloquear/apagar (modo prueba), pausar/reanudar el sistema.
+- **Interfaz gráfica** (`gui/app.py`): arranca y empieza a escuchar sola, sin
+  necesitar clic (indispensable para discapacidad motriz). El micrófono
+  nunca se apaga durante la sesión; "pausar" solo ignora comandos hasta
+  que se diga "reanuda" — así la reanudación también es por voz.
+- **Métricas** (`metrics/logger.py`): registra cada interacción en CSV y
+  calcula tasas de reconocimiento/error.
+- **Navegación asistida** (`navigation/navigation.py`):
+  - `sube` / `baja` / `siguiente` / `anterior` / `entra`: navegación tipo
+    lector de pantalla (Tab/flechas/Enter).
+  - `lee`: lee en voz alta el elemento enfocado (TTS + UI Automation).
+  - `busca [algo]`: búsqueda en el navegador escribiendo en la barra de
+    direcciones (sin Selenium).
+  - `escribe [algo]` / `dicta [algo]`: dictado de texto en cualquier campo
+    (Word, Bloc de notas, etc.), vía portapapeles para que tildes y eñes
+    salgan bien.
+  - Edición: `nueva linea`, `borra`, `borra palabra`, `guarda`, `deshacer`,
+    `selecciona todo`.
+  - Formato de texto: `negrita`, `cursiva`, `subrayado`, `letra mas grande`,
+    `letra mas pequena`.
+  - `que puedo decir` / `ayuda`: narra por voz un resumen de comandos
+    disponibles (configurable en `comandos.json`, campo `ayuda_hablada`).
 
-  **Flujo de uso real:** "busca clima Bogotá" → el sistema escribe y
-  busca → la persona dice "siguiente" y "lee" para explorar resultados →
-  dice "entra" cuando encuentra lo que buscaba.
+### Mantenimiento reciente
+- La ruta del modelo de Vosk ya no está fija en el código: se lee desde
+  `config/ajustes.json`. Si cambias de computador o mueves la carpeta,
+  solo se edita ese archivo.
+- Mensajes de error más claros cuando falta configuración o el modelo no
+  se encuentra.
 
-  **Limitación honesta:** la lectura depende de que la página exponga bien
-  su información de accesibilidad. Puede fallar en elementos sin descripción.
-
-### ⚠️ Construido pero NO integrado
+### Construido pero NO integrado
 - **Preprocesamiento de señal** (`preprocessing/preprocessing.py`): sin
-  calibrar con hardware real, desactivado por ahora.
+  calibrar con hardware real.
 
-### 🚧 Pendiente (parte central del alcance, no opcional)
-- Dictado de texto hacia Word/editores de texto.
-- Interfaz gráfica: mejoras visuales pendientes.
+### Pendiente
+- Soporte de idioma inglés (Vosk lo permite con otro modelo, falta integrarlo).
+- Control de mouse por voz (para discapacidad motriz que sí puede ver pantalla).
+- Confirmación por voz activable/desactivable según perfil (motriz vs visual).
+- Seguridad: por ahora cualquier voz cercana al micrófono puede dar órdenes.
+- Registro de errores en archivo persistente (`logs/`) para diagnóstico
+  posterior sin depender de estar mirando la pantalla en el momento del fallo.
 
 ## Estructura del proyecto
-
 Mouth-ai-live/
 ├── asr/
 ├── interpreter/
@@ -59,9 +70,11 @@ Mouth-ai-live/
 ├── metrics/
 ├── gui/
 ├── preprocessing/
-├── config/comandos.json
+├── config/
+│ ├── comandos.json # comandos reconocidos + texto de ayuda hablada
+│ └── ajustes.json # ruta del modelo de Vosk (edítalo si cambias de PC)
 ├── tests/
-├── models/ (ignorado por git)
+├── models/ # ignorado por git, se descarga aparte
 ├── requirements.txt
 └── .gitignore
 
@@ -70,17 +83,9 @@ Mouth-ai-live/
 1. `python -m venv venv` y `venv\Scripts\activate`
 2. `pip install -r requirements.txt`
 3. Descargar el modelo desde [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models)
-   (`vosk-model-es-0.42`) y descomprimir en `models/vosk-model-es-0.42/`
-4. Ajustar `RUTA_MODELO` en `asr/vosk_asr.py` si es necesario.
+   y descomprimirlo donde prefieras.
+4. Editar `config/ajustes.json` con la ruta real donde quedó el modelo.
 
 ## Uso
 
-python gui/app.py
 
-
-Presiona **Iniciar** y di comandos como "abre google", "busca clima Bogotá",
-"siguiente", "lee", "entra", "sube el volumen".
-
-## Comandos disponibles
-
-Ver/editar `config/comandos.json`
