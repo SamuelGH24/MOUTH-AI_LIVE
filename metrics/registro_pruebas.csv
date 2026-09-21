@@ -165,3 +165,49 @@ timestamp,texto_reconocido,intencion,confianza,reconocido,accion,parametro,exito
 2026-08-24T20:23:20,tiene razón bueno polla mejora lo que es el mantenimiento para arreglar esos problemas ida y ya voy a la entrevista para,,0.234,False,,,False,,7.34
 2026-08-24T20:23:41,listo perfecto,,0.429,False,,,False,,5.17
 2026-08-24T20:23:57,mi compromiso actualmente es pudiera ser una facilidad para el sistema de word bloc de notas y mejora el mantenimiento,detener_sistema,1.0,True,detener,,True,DETENER_SISTEMA,0.7
+2026-08-31T20:21:13,pick out,,0.417,False,,,False,,
+2026-08-31T20:21:17,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,121.25
+2026-08-31T20:21:21,busquen,,0.545,False,,,False,,
+2026-08-31T20:21:26,busca información,buscar_google_query,1.0,True,buscar_google,informacion,True,Buscando en Google: informacion,1352.96
+2026-08-31T20:21:34,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,12.29
+2026-08-31T20:21:41,busca información acerca de la pasta,buscar_google_query,1.0,True,buscar_google,informacion acerca de la pasta,True,Buscando en Google: informacion acerca de la pasta,1554.82
+2026-08-31T20:21:47,are words,abrir_word,0.889,True,abrir_app,word,True,Abriendo aplicación: word,11.63
+2026-08-31T20:21:53,genial,,0.545,False,,,False,,
+2026-08-31T20:22:04,escribir para la iniciación de este resultado se busca una fuerte solución acerca de de la informática,escribir_texto_dictado,1.0,True,escribir_texto,para la iniciacion de este resultado se busca una fuerte solucion acerca de de la informatica,True,Texto escrito: para la iniciacion de este resultado se busca una fuerte solucion acerca de de la informatica,330.07
+2026-08-31T20:22:09,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,18.99
+2026-08-31T20:22:17,busque acerca de la creación de contenido,,0.475,False,,,False,,
+2026-08-31T20:22:33,busca acerca de la creación de contenido,buscar_google_query,1.0,True,buscar_google,acerca de la creacion de contenido,True,Buscando en Google: acerca de la creacion de contenido,1674.14
+2026-08-31T20:22:45,lee,leer_pantalla,1.0,True,leer_pantalla,,False,Elemento sin texto legible,3335.16
+2026-08-31T20:23:02,lee,leer_pantalla,1.0,True,leer_pantalla,,True,¿Qué es la creación de contenidos digitales y cómo ... Universidad Anáhuac Mérida https://merida.anahuac.mx › posgrado › blog › que-es-la...,9625.6
+2026-08-31T20:23:36,ricky,,0.364,False,,,False,,
+2026-08-31T20:23:48,google,,0.706,False,,,False,,
+2026-08-31T20:23:53,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,22.9
+2026-08-31T20:24:02,hable bloc de notas,abrir_bloc_notas,0.85,True,abrir_app,notepad,True,Abriendo aplicación: notepad,10.57
+2026-08-31T20:24:15,escribe para crear una sociedad srita busca desde el fondo del alma cuáles son los requisitos básicos,escribir_texto_dictado,1.0,True,escribir_texto,para crear una sociedad srita busca desde el fondo del alma cuales son los requisitos basicos,True,Texto escrito: para crear una sociedad srita busca desde el fondo del alma cuales son los requisitos basicos,332.92
+2026-08-31T20:24:20,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,14.45
+2026-08-31T20:24:25,bien,,0.5,False,,,False,,
+2026-08-31T20:24:26,otra vez,,0.526,False,,,False,,
+2026-08-31T20:25:25,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,15.05
+2026-08-31T20:25:34,ahora suponéis cuando estoy diciendo algo no sé con esto,,0.338,False,,,False,,
+2026-08-31T20:36:24,a facebook,,0.4,False,,,False,,
+2026-08-31T20:36:30,click,,0.5,False,,,False,,
+2026-08-31T20:36:35,apple y google,,0.72,False,,,False,,
+2026-08-31T20:36:42,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,122.31
+2026-08-31T20:36:48,busque información acerca del sindicato,,0.444,False,,,False,,
+2026-08-31T20:36:59,busca información acerca del sindicato,buscar_google_query,1.0,True,buscar_google,informacion acerca del sindicato,True,Buscando en Google: informacion acerca del sindicato,1986.73
+2026-09-21T18:08:37,okay,,0.444,False,,,False,,
+2026-09-21T18:08:48,mueve a la derecha,mouse_mover_derecha,0.839,True,mouse_mover,derecha,False,Acción no reconocida: mouse_mover,0.02
+2026-09-21T18:08:57,mover manos a la derecha,mouse_mover_derecha,0.784,True,mouse_mover,derecha,False,Acción no reconocida: mouse_mover,0.01
+2026-09-21T18:09:17,mueva hacia arriba,navegar_arriba,1.0,True,navegar,arriba,True,Navegación ejecutada: arriba,452.52
+2026-09-21T18:09:21,mueva hacia abajo,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,102.17
+2026-09-21T18:09:25,nueve la derecha,mouse_mover_derecha,0.828,True,mouse_mover,derecha,False,Acción no reconocida: mouse_mover,0.03
+2026-09-21T18:12:18,fitch,,0.5,False,,,False,,
+2026-09-21T18:18:22,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,117.25
+2026-09-21T18:18:28,busca información,buscar_google_query,1.0,True,buscar_google,informacion,True,Buscando en Google: informacion,1168.43
+2026-09-21T18:18:32,abre word,abrir_word,1.0,True,abrir_app,word,True,Abriendo aplicación: word,26.09
+2026-09-21T18:18:42,escribe como cerrar google en una ventana,escribir_texto_dictado,1.0,True,escribir_texto,como cerrar google en una ventana,True,Texto escrito: como cerrar google en una ventana,338.9
+2026-09-21T18:18:48,escribe cómo abrir google en una ventana,escribir_texto_dictado,1.0,True,escribir_texto,como abrir google en una ventana,True,Texto escrito: como abrir google en una ventana,342.69
+2026-09-21T18:18:52,escribe como google,escribir_texto_dictado,1.0,True,escribir_texto,como google,True,Texto escrito: como google,339.04
+2026-09-21T18:18:58,escribe abrir google,escribir_texto_dictado,1.0,True,escribir_texto,abrir google,True,Texto escrito: abrir google,350.28
+2026-09-21T18:19:11,mueve derecha,mouse_mover_derecha,1.0,True,mouse_mover,derecha,False,Acción no reconocida: mouse_mover,0.01
+2026-09-21T18:19:17,mouse mover,,0.522,False,,,False,,
