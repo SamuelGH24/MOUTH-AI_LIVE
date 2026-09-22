@@ -211,3 +211,33 @@ timestamp,texto_reconocido,intencion,confianza,reconocido,accion,parametro,exito
 2026-09-21T18:18:58,escribe abrir google,escribir_texto_dictado,1.0,True,escribir_texto,abrir google,True,Texto escrito: abrir google,350.28
 2026-09-21T18:19:11,mueve derecha,mouse_mover_derecha,1.0,True,mouse_mover,derecha,False,Acción no reconocida: mouse_mover,0.01
 2026-09-21T18:19:17,mouse mover,,0.522,False,,,False,,
+2026-09-21T18:36:14,seis,,0.5,False,,,False,,
+2026-09-21T18:38:12,mueve a la izquierda,mouse_mover_izquierda,0.857,True,mouse_mover,izquierda,False,Acción no reconocida: mouse_mover,0.03
+2026-09-21T18:38:17,nueva izquierda,mouse_mover_izquierda,0.867,True,mouse_mover,izquierda,False,Acción no reconocida: mouse_mover,0.01
+2026-09-21T18:38:22,baos mover izquierda,,0.743,False,,,False,,
+2026-09-21T18:38:29,mouse mover izquierda,mouse_mover_izquierda,0.833,True,mouse_mover,izquierda,False,Acción no reconocida: mouse_mover,0.03
+2026-09-21T18:38:36,movernos,,0.429,False,,,False,,
+2026-09-21T18:38:40,mouse mover,,0.522,False,,,False,,
+2026-09-21T18:38:56,click,mouse_clic_izquierdo,1.0,True,mouse_clic,izquierdo,False,Acción no reconocida: mouse_clic,0.01
+2026-09-21T19:04:07,muévete derecha,mouse_mover_derecha,0.929,True,mouse_mover,derecha,True,"Mouse movido: derecha -> (782, 252)",314.67
+2026-09-21T19:04:12,muévete derecha,mouse_mover_derecha,0.929,True,mouse_mover,derecha,True,"Mouse movido: derecha -> (822, 252)",101.57
+2026-09-21T19:04:16,muévete derecha,mouse_mover_derecha,0.929,True,mouse_mover,derecha,True,"Mouse movido: derecha -> (862, 252)",105.09
+2026-09-21T19:04:19,nueve trabajo,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,115.03
+2026-09-21T19:04:24,muévete abajo,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,102.94
+2026-09-21T19:04:29,muévete arriba,navegar_arriba,1.0,True,navegar,arriba,True,Navegación ejecutada: arriba,106.22
+2026-09-21T19:04:34,es izquierda,mouse_mover_izquierda,0.815,True,mouse_mover,izquierda,True,"Mouse movido: izquierda -> (822, 252)",115.21
+2026-09-21T19:04:38,beta izquierda,mouse_mover_izquierda,0.759,True,mouse_mover,izquierda,True,"Mouse movido: izquierda -> (782, 252)",104.73
+2026-09-21T19:04:41,muévete izquierda,mouse_mover_izquierda,0.938,True,mouse_mover,izquierda,True,"Mouse movido: izquierda -> (742, 252)",102.87
+2026-09-21T19:05:02,click,mouse_clic_izquierdo,1.0,True,mouse_clic,izquierdo,True,Clic izquierdo ejecutado,116.74
+2026-09-21T19:19:48,google,,0.706,False,,,False,,
+2026-09-21T19:21:01,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,6730.8
+2026-09-21T19:21:10,busca información de la casa,buscar_google_query,1.0,True,buscar_google,informacion de la casa,True,Buscando en Google: informacion de la casa,4697.28
+2026-09-21T19:21:18,ahora work,,0.632,False,,,False,,
+2026-09-21T19:21:34,escribe casa de nadie,escribir_texto_dictado,1.0,True,escribir_texto,casa de nadie,True,Texto escrito: casa de nadie,3513.14
+2026-09-21T19:21:41,abre el bloc de notas,abrir_bloc_notas,1.0,True,abrir_app,notepad,True,Abriendo aplicación: notepad,2906.93
+2026-09-21T19:22:52,buen trabajo,navegar_abajo,1.0,True,navegar,abajo,True,Navegación ejecutada: abajo,3181.65
+2026-09-21T19:23:30,sandwich kendrick se creó tomaba dice que ya vienen no sé qué pasó a qué viene eso me dijo,,0.259,False,,,False,,
+2026-09-21T19:23:32,la tienda,,0.5,False,,,False,,
+2026-09-21T19:24:33,es una bonita,,0.609,False,,,False,,
+2026-09-21T19:24:37,all right,,0.435,False,,,False,,
+2026-09-21T19:25:54,dónde,,0.4,False,,,False,,

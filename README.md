@@ -41,13 +41,46 @@ Director: Fabio Gonzales
   **Limitación honesta:** la lectura depende de que la página exponga bien
   su información de accesibilidad. Puede fallar en elementos sin descripción.
 
+- **Dictado de texto** (`navigation/navigation.py`, método `escribir_texto`):
+  - Si la ventana activa es **Word**, el texto se escribe directo en el
+    documento vía COM (`win32com`, `Selection.TypeText`) — sin tocar el
+    portapapeles ni simular teclas, más confiable con tildes/eñes.
+  - En cualquier otra app (Notepad, navegador, etc.), usa el método genérico
+    de portapapeles + Ctrl+V, que sigue funcionando como respaldo.
+  - Requiere `pywin32` instalado y registrado
+    (`python venv\Scripts\pywin32_postinstall.py -install`).
+
+- **Control de mouse por voz** (`navigation/navigation.py`, `actions/actions.py`):
+  - `mueve arriba/abajo/izquierda/derecha`: desplaza el cursor en pasos
+    fijos, con límite de pantalla (nunca se sale del monitor ni dispara el
+    "failsafe" de `pyautogui` en la esquina).
+  - `clic` / `doble clic` / `clic derecho`: ejecuta el clic correspondiente.
+  - **Nota de diseño:** el mouse a nudges es el método de último recurso.
+    Para la mayoría de apps normales, moverse por foco de teclado
+    (`siguiente`/`entra`, ya implementado) es más rápido y confiable por
+    voz que apuntar con el cursor. El mouse queda pensado como respaldo
+    para lienzos/imágenes sin elementos nombrados.
+
+- **Confirmación por voz de cada acción** (`actions/actions.py`): el sistema
+  narra el resultado de lo que acaba de hacer ("Abriendo aplicación: chrome",
+  "Volumen: subir", etc.), no solo lo escribe en el log visual — importante
+  para usuarios con limitación visual. Se puede silenciar/reactivar con los
+  comandos `desactiva la voz` / `activa la voz`.
+
 ### ⚠️ Construido pero NO integrado
 - **Preprocesamiento de señal** (`preprocessing/preprocessing.py`): sin
   calibrar con hardware real, desactivado por ahora.
 
-### 🚧 Pendiente (parte central del alcance, no opcional)
-- Dictado de texto hacia Word/editores de texto.
+### 🚧 Pendiente
 - Interfaz gráfica: mejoras visuales pendientes.
+- `cambia a [app]`: enfocar una ventana ya abierta por su título en vez de
+  lanzar una instancia nueva (hoy `abre chrome` siempre abre una copia más,
+  aunque Chrome ya esté abierto).
+- Clic por nombre de elemento (`clic en Aceptar`) vía UI Automation, sin
+  depender de coordenadas de mouse.
+- Navegación por dirección lógica en Excel/PowerPoint vía COM (celda,
+  diapositiva) en vez de mouse/grid, para cuando el contenido esté fuera
+  del área visible en pantalla.
 
 ## Estructura del proyecto
 
@@ -69,17 +102,23 @@ Mouth-ai-live/
 
 1. `python -m venv venv` y `venv\Scripts\activate`
 2. `pip install -r requirements.txt`
-3. Descargar el modelo desde [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models)
+3. Registrar los módulos COM de `pywin32` (necesario para el dictado en Word):
+   `python venv\Scripts\pywin32_postinstall.py -install`
+4. Descargar el modelo desde [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models)
    (`vosk-model-es-0.42`) y descomprimir en `models/vosk-model-es-0.42/`
-4. Ajustar `RUTA_MODELO` en `asr/vosk_asr.py` si es necesario.
+5. Ajustar `RUTA_MODELO` en `asr/vosk_asr.py` si es necesario.
 
 ## Uso
 
 python gui/app.py
 
 
-Presiona **Iniciar** y di comandos como "abre google", "busca clima Bogotá",
-"siguiente", "lee", "entra", "sube el volumen".
+El micrófono arranca solo al abrir la app (diseño manos libres, ver
+`gui/app.py`) — no hay botón "Iniciar". Usa **Pausar** / **Reanudar** si
+necesitas que el sistema ignore comandos temporalmente (o di "detente" /
+"reanuda"). Di comandos como "abre google", "busca clima Bogotá",
+"siguiente", "lee", "entra", "sube el volumen", "mueve derecha", "clic",
+"escribe [lo que quieras]", "desactiva la voz".
 
 ## Comandos disponibles
 

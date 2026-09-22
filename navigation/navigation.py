@@ -33,6 +33,15 @@ try:
 except ImportError:
     UIAUTOMATION_DISPONIBLE = False
 
+try:
+    import win32api
+    import win32com.client
+    import win32gui
+    import win32process
+    WIN32_DISPONIBLE = True
+except ImportError:
+    WIN32_DISPONIBLE = False
+
 
 TECLAS_NAVEGACION = {
     "abajo": "down",
@@ -54,9 +63,41 @@ class NavegadorAsistido:
     def __init__(self):
         pass
 
+    def _app_activa_es_word(self) -> bool:
+        if not WIN32_DISPONIBLE:
+            return False
+        try:
+            hwnd = win32gui.GetForegroundWindow()
+            _, pid = win32process.GetWindowThreadProcessId(hwnd)
+            PROCESS_QUERY_INFORMATION = 0x0400
+            PROCESS_VM_READ = 0x0010
+            handle = win32api.OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, False, pid)
+            try:
+                ruta = win32process.GetModuleFileNameEx(handle, 0)
+            finally:
+                win32api.CloseHandle(handle)
+            return ruta.lower().endswith("winword.exe")
+        except Exception:
+            return False
+
+    def _dictar_en_word(self, texto: str):
+        """Escribe directo en el documento activo de Word vía COM, sin
+        pasar por el portapapeles ni simular teclas. Más confiable con
+        tildes/eñes y no interfiere con lo que el usuario tenga copiado."""
+        word_app = win32com.client.GetActiveObject("Word.Application")
+        word_app.Selection.TypeText(texto)
+
     def escribir_texto(self, texto: str):
         if not texto or not texto.strip():
             return False, "No se especificó qué escribir"
+
+        if self._app_activa_es_word():
+            try:
+                self._dictar_en_word(texto)
+                return True, f"Texto dictado en Word: {texto}"
+            except Exception:
+                pass  # si falla la vía COM, seguimos con el método genérico
+
         try:
             portapapeles_anterior = None
             try:
@@ -144,8 +185,10 @@ class NavegadorAsistido:
         try:
             ancho, alto = pyautogui.size()
             x_actual, y_actual = pyautogui.position()
-            x_nuevo = max(0, min(x_actual + offset[0], ancho - 1))
-            y_nuevo = max(0, min(y_actual + offset[1], alto - 1))
+            # Margen de 2px: nunca tocar exactamente (0,0) ni el borde opuesto,
+            # porque eso dispara el failsafe de PyAutoGUI y bloquea la próxima acción.
+            x_nuevo = max(2, min(x_actual + offset[0], ancho - 3))
+            y_nuevo = max(2, min(y_actual + offset[1], alto - 3))
             pyautogui.moveTo(x_nuevo, y_nuevo, duration=0)
             return True, f"Mouse movido: {direccion} -> ({x_nuevo}, {y_nuevo})"
         except Exception as e:
