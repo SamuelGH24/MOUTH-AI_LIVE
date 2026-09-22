@@ -1,5 +1,5 @@
 {
-  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, guarda, o deshacer. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para mover el cursor del mouse, di mueve arriba, mueve abajo, mueve izquierda, o mueve derecha, y para hacer clic, di clic, doble clic, o clic derecho. Para terminar, di detente.",
+  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, guarda, o deshacer. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para mover el cursor del mouse, di mueve arriba, mueve abajo, mueve izquierda, o mueve derecha, y para hacer clic, di clic, doble clic, o clic derecho. Para que el sistema deje de hablarte las confirmaciones, di desactiva la voz, y para que vuelva a hablar, di activa la voz. Para terminar, di detente.",
   "comandos": [
     {"intencion": "abrir_navegador", "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"], "accion": "abrir_app", "parametro": "chrome"},
     {"intencion": "abrir_bloc_notas", "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"], "accion": "abrir_app", "parametro": "notepad"},
@@ -38,9 +38,11 @@
     {"intencion": "listar_comandos", "frases": ["que puedo decir", "ayuda", "que comandos hay", "que puedes hacer", "necesito ayuda"], "accion": "listar_comandos", "parametro": null},
 
     {"intencion": "reanudar_escucha", "frases": ["reanuda", "reanudar", "continua", "continuar", "sigue escuchando"], "accion": "reanudar", "parametro": null},
+    {"intencion": "activar_voz", "frases": ["activar voz", "activa la voz", "enciende la voz", "prende la voz"], "accion": "activar_voz", "parametro": null},
+    {"intencion": "desactivar_voz", "frases": ["desactivar voz", "desactiva la voz", "apaga la voz", "silencia la voz"], "accion": "desactivar_voz", "parametro": null},
 
-    {"intencion": "mouse_mover_arriba", "frases": ["mueve arriba", "mueve el mouse arriba", "sube el mouse", "sube el cursor"], "accion": "mouse_mover", "parametro": "arriba"},
-    {"intencion": "mouse_mover_abajo", "frases": ["mueve abajo", "mueve el mouse abajo", "baja el mouse", "baja el cursor"], "accion": "mouse_mover", "parametro": "abajo"},
+    {"intencion": "mouse_mover_arriba", "frases": ["mueve arriba", "mueve el mouse arriba", "mueve hacia arriba", "mueva arriba", "mueva hacia arriba", "sube el mouse", "sube el cursor", "cursor arriba"], "accion": "mouse_mover", "parametro": "arriba"},
+    {"intencion": "mouse_mover_abajo", "frases": ["mueve abajo", "mueve el mouse abajo", "mueve hacia abajo", "mueva abajo", "mueva hacia abajo", "baja el mouse", "baja el cursor", "cursor abajo"], "accion": "mouse_mover", "parametro": "abajo"},
     {"intencion": "mouse_mover_izquierda", "frases": ["mueve izquierda", "mueve el mouse a la izquierda", "cursor a la izquierda"], "accion": "mouse_mover", "parametro": "izquierda"},
     {"intencion": "mouse_mover_derecha", "frases": ["mueve derecha", "mueve el mouse a la derecha", "cursor a la derecha"], "accion": "mouse_mover", "parametro": "derecha"},
     {"intencion": "mouse_clic_izquierdo", "frases": ["clic", "haz clic", "click", "presiona clic"], "accion": "mouse_clic", "parametro": "izquierdo"},

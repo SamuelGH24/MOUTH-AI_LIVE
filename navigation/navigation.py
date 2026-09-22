@@ -131,6 +131,40 @@ class NavegadorAsistido:
             self._hablar("Ocurrió un error al intentar leer")
             return False, mensaje
 
+    def mover_mouse(self, direccion: str, paso: int = 40):
+        offsets = {
+            "arriba": (0, -paso),
+            "abajo": (0, paso),
+            "izquierda": (-paso, 0),
+            "derecha": (paso, 0),
+        }
+        offset = offsets.get(direccion)
+        if offset is None:
+            return False, f"Dirección de mouse inválida: {direccion}"
+        try:
+            ancho, alto = pyautogui.size()
+            x_actual, y_actual = pyautogui.position()
+            x_nuevo = max(0, min(x_actual + offset[0], ancho - 1))
+            y_nuevo = max(0, min(y_actual + offset[1], alto - 1))
+            pyautogui.moveTo(x_nuevo, y_nuevo, duration=0)
+            return True, f"Mouse movido: {direccion} -> ({x_nuevo}, {y_nuevo})"
+        except Exception as e:
+            return False, f"Error al mover el mouse: {e}"
+
+    def clic_mouse(self, tipo: str):
+        try:
+            if tipo == "izquierdo":
+                pyautogui.click(button="left")
+            elif tipo == "derecho":
+                pyautogui.click(button="right")
+            elif tipo == "doble":
+                pyautogui.doubleClick(button="left")
+            else:
+                return False, f"Tipo de clic inválido: {tipo}"
+            return True, f"Clic {tipo} ejecutado"
+        except Exception as e:
+            return False, f"Error al hacer clic: {e}"
+
     def hablar(self, texto: str):
         """Método público para que otros módulos (ej. actions.py) pidan narrar algo."""
         self._hablar(texto)

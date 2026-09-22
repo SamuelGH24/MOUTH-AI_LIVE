@@ -28,6 +28,7 @@ class EjecutorAcciones:
         self.modo_prueba = modo_prueba
         self.ruta_config = Path(ruta_config) if ruta_config else RUTA_CONFIG_POR_DEFECTO
         self._navegador_asistido = None
+        self.voz_activada = True
 
     def _obtener_navegador_asistido(self):
         if self._navegador_asistido is None:
@@ -38,7 +39,52 @@ class EjecutorAcciones:
             self._navegador_asistido = NavegadorAsistido()
         return self._navegador_asistido
 
+    # Acciones que ya narran su propio resultado (o cuyo "mensaje" es un
+    # código interno para la GUI, no texto para leer en voz alta).
+    _ACCIONES_SIN_NARRACION_AUTOMATICA = {"leer_pantalla", "listar_comandos", "detener", "reanudar"}
+
     def ejecutar(self, accion: str, parametro):
+        if accion == "activar_voz":
+            resultado = self._cambiar_voz(True)
+        elif accion == "desactivar_voz":
+            resultado = self._cambiar_voz(False)
+        else:
+            resultado = self.ejecutar_interno(accion, parametro)
+
+        self._narrar_resultado(accion, resultado)
+        return resultado
+
+    def _cambiar_voz(self, activar: bool):
+        self.voz_activada = activar
+        estado = "activada" if activar else "desactivada"
+        return True, f"Voz de confirmación {estado}"
+
+    def hablar_si_activado(self, texto: str):
+        """Método público para que otros módulos (ej. gui/app.py) narren
+        mensajes propios (pausar/reanudar) respetando el mismo toggle."""
+        if not self.voz_activada:
+            return
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception:
+            return
+        navegador.hablar(texto)
+
+    def _narrar_resultado(self, accion: str, resultado):
+        _exito, mensaje = resultado
+        if not mensaje or accion in self._ACCIONES_SIN_NARRACION_AUTOMATICA:
+            return
+        # activar_voz/desactivar_voz siempre se anuncian, incluso al apagar
+        # la voz, porque esa narración ES la confirmación del cambio.
+        if not self.voz_activada and accion not in {"activar_voz", "desactivar_voz"}:
+            return
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception:
+            return
+        navegador.hablar(mensaje)
+
+    def ejecutar_interno(self, accion: str, parametro):
         try:
             if accion == "abrir_app":
                 return self._abrir_app(parametro)
@@ -64,6 +110,10 @@ class EjecutorAcciones:
                 return self._escribir_texto(parametro)
             elif accion == "listar_comandos":
                 return self._listar_comandos()
+            elif accion == "mouse_mover":
+                return self._mouse_mover(parametro)
+            elif accion == "mouse_clic":
+                return self._mouse_clic(parametro)
             else:
                 return False, f"Acción no reconocida: {accion}"
         except Exception as e:
@@ -145,3 +195,17 @@ class EjecutorAcciones:
 
         navegador.hablar(texto_ayuda)
         return True, "Lista de comandos narrada por voz"
+
+    def _mouse_mover(self, direccion: str):
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
+        return navegador.mover_mouse(direccion)
+
+    def _mouse_clic(self, tipo: str):
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
+        return navegador.clic_mouse(tipo)

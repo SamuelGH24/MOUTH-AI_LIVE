@@ -144,11 +144,15 @@ class MouthAILiveGUI:
         self.pausado.clear()
         self.etiqueta_estado.config(text="Escuchando...", fg="#1A8F1A")
         self._escribir_log("[Sistema] Reanudado.")
+        if self.ejecutor is not None:
+            self.ejecutor.hablar_si_activado("Sistema reanudado")
 
     def pausar(self):
         self.pausado.set()
         self.etiqueta_estado.config(text="En pausa. Di 'reanuda' o presiona Reanudar.", fg="#CC7A00")
         self._escribir_log("[Sistema] En pausa (el microfono sigue escuchando 'reanuda').")
+        if self.ejecutor is not None:
+            self.ejecutor.hablar_si_activado("Sistema en pausa")
 
     def _bucle_escucha(self):
         try:
