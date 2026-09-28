@@ -241,3 +241,234 @@ timestamp,texto_reconocido,intencion,confianza,reconocido,accion,parametro,exito
 2026-09-21T19:24:33,es una bonita,,0.609,False,,,False,,
 2026-09-21T19:24:37,all right,,0.435,False,,,False,,
 2026-09-21T19:25:54,dónde,,0.4,False,,,False,,
+2026-09-21T20:24:26,injusto porque tú también es mi mi profesor encargado no,,0.338,False,,,False,,
+2026-09-21T20:24:41,sí lo de la alimentación eso sí creo que me falta un poquito pero pero ya lo tendré en mente para hacerlo y entregártelo,,0.221,False,,,False,,
+2026-09-21T20:24:47,no la documentación es fácil,,0.549,False,,,False,,
+2026-09-21T20:24:55,claro como yo pongo todo lo que tengo en hitchcock y ahí estoy comentando todo eso no estoy tan preocupado,,0.286,False,,,False,,
+2026-09-21T20:25:06,claro,,0.615,False,,,False,,
+2026-09-21T20:25:13,trata te refieres a acomodarlo para que se entienda ahora en un sistema más formal,,0.297,False,,,False,,
+2026-09-21T20:25:21,información acerca de las actualizaciones de los cambios el readme,,0.322,False,,,False,,
+2026-09-21T20:25:39,sí,,0.571,False,,,False,,
+2026-09-21T20:25:59,ah ok vale usado,,0.5,False,,,False,,
+2026-09-21T20:26:16,cree la aplicación todo el proyecto,,0.48,False,,,False,,
+2026-09-21T20:26:37,perfecto pero vale aquí tengo la aplicación actualmente a la mano,,0.348,False,,,False,,
+2026-09-21T20:26:48,mira qué tal va normal mente está creando ya todo lo que hay en esta conversión así que eso está bien,,0.277,False,,,False,,
+2026-09-21T20:27:54,cacería,,0.667,False,,,False,,
+2026-09-21T20:28:07,abrigo google,buscar_web,0.88,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,7355.71
+2026-09-21T20:28:17,busca información acerca de la casa,buscar_google_query,1.0,True,buscar_google,informacion acerca de la casa,True,Buscando en Google: informacion acerca de la casa,5358.28
+2026-09-21T20:28:43,abre oort y llano ano ya pude contactarme con alguien que tiene una discapacidad y tengo grabaciones lo cual ya ahorita voy a documentar,,0.232,False,,,False,,
+2026-09-21T20:28:52,si lo hace solamente que como mencioné mucho y no mencioné bien worth tomó como hort,,0.28,False,,,False,,
+2026-09-21T20:29:02,abre word,abrir_word,1.0,True,abrir_app,word,True,Abriendo aplicación: word,2769.94
+2026-09-21T20:29:46,sí aunque la forma en que funciona es que tiene una base de datos que está escribiendo directamente las formas en que tu dices algo dices por ejemplo abre google abre google abre esto abre la aplicación google abrí la aplicación tales y busca a partir de esa lista que se acerca se podría mejorar,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,6107.3
+2026-09-21T20:29:48,también se podría ser simple,,0.435,False,,,False,,
+2026-09-21T20:29:56,sí pero también tiene otra,,0.45,False,,,False,,
+2026-09-21T20:30:06,escribe información de la casa,escribir_texto_dictado,1.0,True,escribir_texto,informacion de la casa,True,Texto dictado en Word: informacion de la casa,3769.97
+2026-09-21T20:30:32,no esa información o no porque está arreglando unas cosas que tenía worth anteriormente gorda estaba funcionando a partir de la estructura es simplemente escribir todo como un comando el problema es que qué pasaría si estás en múltiples páginas a la vez por ende se hizo un pequeño cambio para que se ajuste directamente a la página de word,navegar_anterior,1.0,True,navegar,anterior,True,Navegación ejecutada: anterior,3088.53
+2026-09-21T20:30:44,creo que no si se puede aplicar,,0.553,False,,,False,,
+2026-09-21T20:30:58,claro pero esa es la ventaja esto le podría ser virginidad a una persona que tiene una discapacidad sobre todo porque son ventajas que el mismo computador puede acceder por teclado,,0.193,False,,,False,,
+2026-09-21T20:31:10,no a todos,,0.6,False,,,False,,
+2026-09-21T20:31:18,ahí ya sería algo más a futuro pero actualmente no,,0.411,False,,,False,,
+2026-09-21T20:31:32,en teoría pero también podríamos hacer que copie y si copia puede copiar algo de un excel por ejemplo y ahí se podría pegar,,0.227,False,,,False,,
+2026-09-21T20:31:40,sí,,0.571,False,,,False,,
+2026-09-21T20:31:58,mesmer sí profesor,,0.519,False,,,False,,
+2026-09-21T20:32:14,mira que obviamente ya que tengo todos,,0.407,False,,,False,,
+2026-09-21T20:32:17,cerdán,,0.5,False,,,False,,
+2026-09-21T20:32:30,por el momento qué piensas de la aplicación sé que tienen muchas cosas que mejorar pero a mí no me gusta que pueda ser algo,,0.289,False,,,False,,
+2026-09-21T20:32:57,de anteproyecto,,0.522,False,,,False,,
+2026-09-21T20:33:06,ah,,0.333,False,,,False,,
+2026-09-21T20:33:29,sí cuando yo lo pensaba en discúlpame en la elaboración de diagramas se pensaba como todo separado en diferentes componentes en palabras más simple como mi proyecto está funcionando que está apoyado por diferentes tipos de carpetas que están haciendo diferentes acciones al menos así los ha representando,,0.05,False,,,False,,
+2026-09-21T20:33:44,solo por si las dudas bosch es la es técnicamente una inteligencia artificial así que por eso está implementada,,0.246,False,,,False,,
+2026-09-21T20:34:03,puedes apagar aunque no lo implemente porque si yo digo pagar se va pagar todo el computador,,0.312,False,,,False,,
+2026-09-21T20:34:24,pues aunque diga cierra la casi lo digo sigo la frase cerrar word por ejemplo y cosas así,,0.276,False,,,False,,
+2026-09-21T20:34:48,claro también es lo siguiente a hacer es que voy a meter una implementación que permita en vez de simplemente abrir seleccionar porque mientras se está editando el problema era que discúlpame si disculpa me estabas hablando,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3276.12
+2026-09-21T20:34:53,entienden,,0.583,False,,,False,,
+2026-09-21T20:35:35,segundo lo leo,,0.533,False,,,False,,
+2026-09-21T20:35:46,si alertas de información más que nada era porque claro yo lo pensaba también mucho en la gente discapacitada en la vista,,0.245,False,,,False,,
+2026-09-21T20:36:02,entiendo pero una duda es que siento que esto es muy poco para hacer un proyecto de grado siendo que look sí,,0.252,False,,,False,,
+2026-09-21T20:36:30,las planeadas eran un outfit a,,0.426,False,,,False,,
+2026-09-21T20:36:34,the word iu gordy google,,0.556,False,,,False,,
+2026-09-21T20:36:44,te,,0.5,False,,,False,,
+2026-09-21T20:36:50,ah,,0.333,False,,,False,,
+2026-09-21T20:37:03,lar grosvenor sí tiene razón hay que voy a hacer,,0.369,False,,,False,,
+2026-09-21T20:37:25,entiendo,,0.609,False,,,False,,
+2026-09-21T20:38:43,parece perfecto profesor si es lo mejor que puedo hacer,,0.394,False,,,False,,
+2026-09-21T20:38:59,sí tienes razón,,0.5,False,,,False,,
+2026-09-21T20:39:19,creo que con esas tres basta no,,0.476,False,,,False,,
+2026-09-21T20:39:23,sí porque es informativa gráfica y de datos,,0.406,False,,,False,,
+2026-09-21T20:39:33,las útiles para una persona no,,0.468,False,,,False,,
+2026-09-21T20:39:45,sí te entiendo,,0.562,False,,,False,,
+2026-09-21T20:41:27,demasiado sin proveedor,,0.424,False,,,False,,
+2026-09-21T20:42:15,ale profe entiendo a una pequeña esta duda esto ya no tiene que ver tanto con esto sino lo que voy a entregar que ya sea con todo lo que tú me estás explicando como debería hacerlo si es válido por un proyecto es que siento que es un poquito,,0.047,False,,,False,,
+2026-09-21T20:42:21,bastantes,,0.5,False,,,False,,
+2026-09-21T20:42:28,niña no la verdad no,,0.514,False,,,False,,
+2026-09-21T20:42:39,mira nadie no me iré cosas,,0.449,False,,,False,,
+2026-09-21T20:43:49,no sé es porque estoy pensando en las acciones que puedes hacer y considerando la cantidad siendo que son pocas bueno igualmente es otro punto de vista,listar_comandos,1.0,True,listar_comandos,,True,Lista de comandos narrada por voz,57582.41
+2026-09-21T20:43:59,claro porque son demasiadas pero liso entienden,,0.4,False,,,False,,
+2026-09-21T20:44:16,ya entendí je,,0.476,False,,,False,,
+2026-09-21T20:44:18,listo,,0.571,False,,,False,,
+2026-09-21T20:44:32,gay,,0.5,False,,,False,,
+2026-09-21T20:44:36,listo brote,,0.48,False,,,False,,
+2026-09-21T20:44:46,listón,,0.533,False,,,False,,
+2026-09-21T20:44:50,igualmente,,0.737,False,,,False,,
+2026-09-21T20:45:09,siempre me dicen que no estás solo cuando estas cándidas,,0.361,False,,,False,,
+2026-09-21T20:45:14,josé ellos se ha ido lo hiciste perdón,,0.448,False,,,False,,
+2026-09-21T20:45:18,sí,,0.571,False,,,False,,
+2026-09-21T20:45:56,sí tiene razón me faltaron las básicas me puse mucho en lo que era importante y dije de una esto esto ya tengo la lógica pero me faltaron las más normalitas,,0.208,False,,,False,,
+2026-09-21T20:46:05,va a servir en st,,0.485,False,,,False,,
+2026-09-21T20:46:44,vale entendido,,0.545,False,,,False,,
+2026-09-21T20:46:53,vale brossard,,0.545,False,,,False,,
+2026-09-21T20:46:58,ale que esté bien,,0.571,False,,,False,,
+2026-09-21T20:47:03,patrimonio es una de ellas,,0.462,False,,,False,,
+2026-09-21T20:47:39,de todas formas,,0.429,False,,,False,,
+2026-09-21T20:49:53,no sé,,0.444,False,,,False,,
+2026-09-21T20:49:56,no estoy pensando cómo hago,,0.439,False,,,False,,
+2026-09-21T20:50:01,gracias,,0.571,False,,,False,,
+2026-09-21T20:50:17,deja la puerta abierta y continua con la mesa ha sido atravesada por anunciar que desdichada yo prefiero que esto usted quiere tener todo el país durante los primeros tres meses,reanudar_escucha,1.0,True,reanudar,,True,REANUDAR_SISTEMA,0.02
+2026-09-21T20:50:20,ya ella,,0.533,False,,,False,,
+2026-09-21T20:50:47,y si cambió la estructura algo diferente,,0.407,False,,,False,,
+2026-09-21T20:50:51,tipos jóvenes,,0.417,False,,,False,,
+2026-09-21T20:51:36,durante,,0.571,False,,,False,,
+2026-09-21T20:51:42,charla de gasto,,0.533,False,,,False,,
+2026-09-21T20:51:49,hay mucha comida,,0.476,False,,,False,,
+2026-09-21T20:51:53,nueva york pasan adelante en,,0.462,False,,,False,,
+2026-09-21T20:51:58,que me da que otras estacas pero no te puedo dar comida,,0.39,False,,,False,,
+2026-09-21T20:52:05,lindsay rick,,0.471,False,,,False,,
+2026-09-21T20:52:12,adelante no me mires así entusiasmo no te puedo dar es por tu bien,,0.315,False,,,False,,
+2026-09-21T20:52:38,no te puedo dar,,0.667,False,,,False,,
+2026-09-21T20:54:05,ya dije,,0.533,False,,,False,,
+2026-09-21T20:54:10,los mil alcanos ya dije,,0.412,False,,,False,,
+2026-09-21T20:54:15,lo siento no te tome miedo así,,0.409,False,,,False,,
+2026-09-21T20:54:45,st,,0.364,False,,,False,,
+2026-09-21T20:55:42,nuestro,,0.556,False,,,False,,
+2026-09-21T20:56:17,sí,,0.571,False,,,False,,
+2026-09-21T20:59:18,me lastimé la mano,,0.529,False,,,False,,
+2026-09-21T21:02:41,dice que,,0.5,False,,,False,,
+2026-09-21T21:03:03,acarigua,,0.571,False,,,False,,
+2026-09-21T21:04:14,batman,,0.6,False,,,False,,
+2026-09-21T21:04:20,jerry,,0.545,False,,,False,,
+2026-09-21T21:05:16,tal,,0.6,False,,,False,,
+2026-09-21T21:05:17,estudiar,,0.625,False,,,False,,
+2026-09-21T21:05:30,gamma emigra,,0.538,False,,,False,,
+2026-09-27T22:20:56,gracias,,0.571,False,,,False,,
+2026-09-27T22:21:01,verano,,0.545,False,,,False,,
+2026-09-27T22:21:27,esas ideas religiosas,,0.514,False,,,False,,
+2026-09-27T22:21:37,sus intestinos,,0.56,False,,,False,,
+2026-09-27T22:21:52,ese día,,0.533,False,,,False,,
+2026-09-27T22:22:06,los famosos hermanos benavente,,0.435,False,,,False,,
+2026-09-27T22:22:07,valiente,,0.632,False,,,False,,
+2026-09-27T22:22:17,a cambio de una cifras que aparecen conocido por el esfuerzo social,,0.31,False,,,False,,
+2026-09-27T22:22:20,nuestro sería eliminar experimentos,,0.528,False,,,False,,
+2026-09-27T22:22:22,respondiendo,,0.519,False,,,False,,
+2026-09-27T22:22:25,significar un cambio,,0.571,False,,,False,,
+2026-09-27T22:22:30,es el hermano mayor de gabriel,,0.491,False,,,False,,
+2026-09-27T22:22:33,aparecen tres veces,,0.467,False,,,False,,
+2026-09-27T22:22:37,estos chinos son personas tendremos que luchar contra él,,0.31,False,,,False,,
+2026-09-27T22:23:07,casi nadie sabe que iba a tener una actualización la cual será el principal fin de su soporte algunas de las cosas que iban a agregar por ejemplo sería su crecer como persona ejecutar las tres variantes de habilidades de papel municipios cerebros lo increíble es que varias de estas cosas estaban casi terminadas,,0.049,False,,,False,,
+2026-09-27T22:23:10,pero te digo el fin del soporte richter,,0.414,False,,,False,,
+2026-09-27T22:23:22,atracción revista,,0.562,False,,,False,,
+2026-09-28T17:59:35,abre word,abrir_word,1.0,True,abrir_app,word,True,Abriendo aplicación: word,4091.47
+2026-09-28T17:59:46,escribe esto es una prueba,escribir_texto_dictado,1.0,True,escribir_texto,esto es una prueba,True,Texto dictado en Word: esto es una prueba,3512.57
+2026-09-28T17:59:56,copia,copiar_texto,1.0,True,editar,copiar,False,Acción no reconocida: editar,3031.89
+2026-09-28T18:00:19,selecciona palabras,seleccionar_palabra_anterior,1.0,True,editar,seleccionar_palabra_anterior,False,Acción no reconocida: editar,2874.87
+2026-09-28T18:02:40,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,6717.32
+2026-09-28T18:02:43,bree worth,,0.737,False,,,False,,
+2026-09-28T18:02:50,abrí worth,abrir_word,0.8,True,abrir_app,word,True,Abriendo aplicación: word,2777.06
+2026-09-28T18:02:59,escribe esto es una prueba,escribir_texto_dictado,1.0,True,escribir_texto,esto es una prueba,True,Texto dictado en Word: esto es una prueba,3506.87
+2026-09-28T18:03:05,selecciona la palabra,seleccionar_palabra_anterior,0.923,True,editar,seleccionar_palabra_anterior,True,Palabra seleccionada,2261.1
+2026-09-28T18:03:09,pia,copiar_texto,0.75,True,editar,copiar,True,Copiado,1759.77
+2026-09-28T18:03:13,pega,pegar_texto,1.0,True,editar,pegar,True,Pegado,1706.72
+2026-09-28T18:03:22,pega,pegar_texto,1.0,True,editar,pegar,True,Pegado,1645.78
+2026-09-28T18:04:34,selecciona línea,seleccionar_linea,1.0,True,editar,seleccionar_linea,True,Línea seleccionada,2211.9
+2026-09-28T18:04:45,copia,copiar_texto,1.0,True,editar,copiar,True,Copiado,1715.14
+2026-09-28T18:04:57,pega,pegar_texto,1.0,True,editar,pegar,True,Pegado,2037.29
+2026-09-28T18:05:20,selecciona línea,seleccionar_linea,1.0,True,editar,seleccionar_linea,True,Línea seleccionada,2183.54
+2026-09-28T18:05:31,corta,cortar_texto,1.0,True,editar,cortar,True,Cortado,1766.7
+2026-09-28T18:05:48,deshacer,deshacer_cambio,1.0,True,navegar,deshacer,True,Navegación ejecutada: deshacer,3103.23
+2026-09-28T18:05:58,deshacer,deshacer_cambio,1.0,True,navegar,deshacer,True,Navegación ejecutada: deshacer,3042.12
+2026-09-28T18:06:06,rachel,,0.615,False,,,False,,
+2026-09-28T18:06:12,razer,,0.667,False,,,False,,
+2026-09-28T18:06:22,re a hacer,rehacer_cambio,0.824,True,editar,rehacer,True,Rehecho,1643.31
+2026-09-28T18:06:41,inicio de la línea,cursor_inicio_linea,0.909,True,editar,cursor_inicio_linea,True,Inicio de línea,1960.75
+2026-09-28T18:06:44,línea,,0.625,False,,,False,,
+2026-09-28T18:06:51,final de la línea,cursor_fin_linea,0.85,True,editar,cursor_fin_linea,True,Fin de línea,1743.24
+2026-09-28T18:07:03,palabra anterior,cursor_palabra_anterior,1.0,True,editar,cursor_palabra_anterior,True,Palabra anterior,2080.95
+2026-09-28T18:07:35,selecciona hasta el inicio,seleccionar_hasta_inicio,1.0,True,editar,seleccionar_hasta_inicio,True,Seleccionado hasta el inicio,2421.65
+2026-09-28T18:07:51,selecciona línea,seleccionar_linea,1.0,True,editar,seleccionar_linea,True,Línea seleccionada,2233.62
+2026-09-28T18:07:57,negrilla,formato_negrita,0.8,True,editar,negrita,True,Negrita activada,1934.11
+2026-09-28T18:08:04,escribe para mi mamá,escribir_texto_dictado,1.0,True,escribir_texto,para mi mama,True,Texto dictado en Word: para mi mama,3263.3
+2026-09-28T18:08:09,negrilla,formato_negrita,0.8,True,editar,negrita,True,Negrita desactivada,2097.04
+2026-09-28T18:09:17,guarda,guardar_documento,1.0,True,editar,guardar,True,Elige el nombre del documento,9156.19
+2026-09-28T18:09:23,casa,,0.545,False,,,False,,
+2026-09-28T18:10:18,aló aló se escucha lo que digo se escucha se es se escucha lo que digo si no que,,0.339,False,,,False,,
+2026-09-28T18:10:40,abre google,buscar_web,1.0,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,6057.9
+2026-09-28T18:10:49,busca elaboración de trabajos,buscar_google_query,1.0,True,buscar_google,elaboracion de trabajos,True,Buscando en Google: elaboracion de trabajos,4845.33
+2026-09-28T18:10:52,the worth,,0.556,False,,,False,,
+2026-09-28T18:11:03,abre word,abrir_word,1.0,True,abrir_app,word,True,Abriendo aplicación: word,2757.08
+2026-09-28T18:11:20,escribe casa de treinta,escribir_texto_dictado,1.0,True,escribir_texto,casa de treinta,True,Texto dictado en Word: casa de treinta,3482.17
+2026-09-28T18:11:27,deshacer,deshacer_cambio,1.0,True,navegar,deshacer,True,Navegación ejecutada: deshacer,3017.63
+2026-09-28T18:11:32,sirve para mi mamá desde la casa,,0.545,False,,,False,,
+2026-09-28T18:11:44,amigos,,0.444,False,,,False,,
+2026-09-28T18:12:11,david de un pie,,0.519,False,,,False,,
+2026-09-28T18:12:20,chef,,0.4,False,,,False,,
+2026-09-28T18:14:03,abreu worth,abrir_word,0.8,True,abrir_app,word,True,Abriendo aplicación: word,3492.73
+2026-09-28T18:14:10,es que para mi mamá,,0.5,False,,,False,,
+2026-09-28T18:14:24,escribe para el idioma,escribir_texto_dictado,1.0,True,escribir_texto,para el idioma,True,Texto dictado en Word: para el idioma,3389.69
+2026-09-28T18:14:37,selecciona palabra,seleccionar_palabra_anterior,1.0,True,editar,seleccionar_palabra_anterior,True,Palabra seleccionada,2178.33
+2026-09-28T18:14:49,copia,copiar_texto,1.0,True,editar,copiar,True,Copiado,1670.07
+2026-09-28T18:15:03,pega,pegar_texto,1.0,True,editar,pegar,True,Pegado,1630.8
+2026-09-28T18:15:15,pega,pegar_texto,1.0,True,editar,pegar,True,Pegado,1616.73
+2026-09-28T18:15:39,selecciona línea,seleccionar_linea,1.0,True,editar,seleccionar_linea,True,Línea seleccionada,2054.41
+2026-09-28T18:15:44,copia,copiar_texto,1.0,True,editar,copiar,True,Copiado,1703.46
+2026-09-28T18:15:47,línea,,0.625,False,,,False,,
+2026-09-28T18:15:56,fin de la línea,cursor_fin_linea,0.889,True,editar,cursor_fin_linea,True,Fin de línea,1756.86
+2026-09-28T18:16:09,pega,pegar_texto,1.0,True,editar,pegar,True,Pegado,1628.41
+2026-09-28T18:18:48,are worth,abrir_word,0.778,True,abrir_app,word,True,Abriendo aplicación: word,3230.27
+2026-09-28T18:18:54,abre word,abrir_word,1.0,True,abrir_app,word,True,Abriendo aplicación: word,2750.37
+2026-09-28T18:25:40,sabemos,,0.6,False,,,False,,
+2026-09-28T18:25:47,casi cien juegos de pronto yo creo que bueno sitios,,0.361,False,,,False,,
+2026-09-28T18:25:51,agréguese una piedra al pollo,,0.435,False,,,False,,
+2026-09-28T18:25:54,cuadritos para asesinarlos,,0.512,False,,,False,,
+2026-09-28T18:26:03,un cuadrito una gallina un huevo duro que si se nos acabó,,0.404,False,,,False,,
+2026-09-28T18:26:04,si sirve,,0.48,False,,,False,,
+2026-09-28T18:26:10,el sistema molestado del medio,,0.56,False,,,False,,
+2026-09-28T18:26:12,yo lo lavo,,0.48,False,,,False,,
+2026-09-28T18:26:21,allí va el agua estaba limpia entonces quién era que no sé creo que iba prisa toros,,0.321,False,,,False,,
+2026-09-28T18:26:24,mi celular en el aire,,0.474,False,,,False,,
+2026-09-28T18:26:33,sí,,0.571,False,,,False,,
+2026-09-28T18:26:35,estos,,0.571,False,,,False,,
+2026-09-28T18:26:40,look,,0.444,False,,,False,,
+2026-09-28T18:26:44,y yo con mi tío miguel,,0.4,False,,,False,,
+2026-09-28T18:26:47,doce tranquila,,0.476,False,,,False,,
+2026-09-28T18:26:50,si yo fuera así,,0.485,False,,,False,,
+2026-09-28T18:27:06,estaba tranquilo nacional para que completes jurídica que evaluada entonces si sirven las adicciones dos mil catorce,,0.288,False,,,False,,
+2026-09-28T18:27:16,manuela,,0.667,False,,,False,,
+2026-09-28T18:27:25,creo que no yo fui me dijo que no,,0.441,False,,,False,,
+2026-09-28T18:27:30,el lenguaje no se queda en google,,0.409,False,,,False,,
+2026-09-28T18:27:45,wall,,0.364,False,,,False,,
+2026-09-28T18:35:36,esa ve,,0.625,False,,,False,,
+2026-09-28T18:35:46,cigars,,0.667,False,,,False,,
+2026-09-28T18:35:51,no,,0.4,False,,,False,,
+2026-09-28T18:35:56,sí,,0.571,False,,,False,,
+2026-09-28T18:36:11,hola,,0.444,False,,,False,,
+2026-09-28T18:36:32,regalo cuando me,,0.519,False,,,False,,
+2026-09-28T18:36:35,sí,,0.571,False,,,False,,
+2026-09-28T18:36:38,ellos ya le dije,,0.5,False,,,False,,
+2026-09-28T18:37:09,naomi,,0.4,False,,,False,,
+2026-09-28T18:37:14,madre,,0.444,False,,,False,,
+2026-09-28T18:37:35,muy malo,,0.526,False,,,False,,
+2026-09-28T18:38:00,antemano,,0.625,False,,,False,,
+2026-09-28T18:39:18,sí,,0.571,False,,,False,,
+2026-09-28T18:45:34,sí,,0.571,False,,,False,,
+2026-09-28T18:45:38,hola yo creo que lo que te ayudó fue la,,0.433,False,,,False,,
+2026-09-28T18:45:44,el annie consideres nunca bautizado,,0.44,False,,,False,,
+2026-09-28T18:46:30,windows,,0.364,False,,,False,,
+2026-09-28T18:46:41,yo estaba averiguando cómo bélicas de un aparato que está desarmado,,0.395,False,,,False,,
+2026-09-28T18:46:46,pareció como su terrible belleza,,0.426,False,,,False,,
+2026-09-28T18:46:48,bloqueo vamos allá,,0.686,False,,,False,,
+2026-09-28T18:46:50,hazlo más,,0.556,False,,,False,,
+2026-09-28T18:47:15,cientos,,0.5,False,,,False,,
+2026-09-28T18:47:21,acción,,0.571,False,,,False,,
+2026-09-28T18:47:24,ante,,0.667,False,,,False,,
+2026-09-28T18:47:34,swartz,,0.429,False,,,False,,
+2026-09-28T18:47:39,comandos,,0.667,False,,,False,,
+2026-09-28T18:50:58,me alegro ma,,0.545,False,,,False,,

@@ -1,5 +1,5 @@
 {
-  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, guarda, o deshacer. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para mover el cursor del mouse, di mueve arriba, mueve abajo, mueve izquierda, o mueve derecha, y para hacer clic, di clic, doble clic, o clic derecho. Para que el sistema deje de hablarte las confirmaciones, di desactiva la voz, y para que vuelva a hablar, di activa la voz. Para terminar, di detente.",
+  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, borra palabra, borra linea, guarda, deshacer o rehacer. Para copiar y pegar, di copia, corta o pega. Para seleccionar, di selecciona todo, selecciona palabra o selecciona linea. Para un documento en blanco, di documento nuevo. Para guardar por primera vez, di guarda como, y el nombre. Para abrir uno guardado, di abre el archivo, y el nombre, o abre el ultimo documento. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para mover el cursor del mouse, di mueve arriba, mueve abajo, mueve izquierda, o mueve derecha, y para hacer clic, di clic, doble clic, o clic derecho. Para que el sistema deje de hablarte las confirmaciones, di desactiva la voz, y para que vuelva a hablar, di activa la voz. Para terminar, di detente.",
   "comandos": [
     {"intencion": "abrir_navegador", "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"], "accion": "abrir_app", "parametro": "chrome"},
     {"intencion": "abrir_bloc_notas", "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"], "accion": "abrir_app", "parametro": "notepad"},
@@ -25,15 +25,42 @@
     {"intencion": "nueva_linea", "frases": ["nueva linea", "salto de linea", "punto y aparte"], "accion": "navegar", "parametro": "entrar"},
     {"intencion": "borrar_letra", "frases": ["borra", "borrar", "elimina eso", "borra letra"], "accion": "navegar", "parametro": "borrar"},
     {"intencion": "borrar_palabra", "frases": ["borra palabra", "borrar palabra", "elimina la palabra"], "accion": "navegar", "parametro": "borrar_palabra"},
-    {"intencion": "guardar_documento", "frases": ["guarda", "guardar", "guardar documento", "guarda el documento"], "accion": "navegar", "parametro": "guardar"},
+    {"intencion": "guardar_documento", "frases": ["guarda", "guardar", "guardar documento", "guarda el documento"], "accion": "editar", "parametro": "guardar"},
     {"intencion": "deshacer_cambio", "frases": ["deshacer", "deshaz eso", "deshacer cambio"], "accion": "navegar", "parametro": "deshacer"},
-    {"intencion": "seleccionar_todo", "frases": ["selecciona todo", "seleccionar todo", "marca todo"], "accion": "navegar", "parametro": "seleccionar_todo"},
+    {"intencion": "seleccionar_todo", "frases": ["selecciona todo", "seleccionar todo", "marca todo"], "accion": "editar", "parametro": "seleccionar_todo"},
 
-    {"intencion": "formato_negrita", "frases": ["negrita", "pon negrita", "activa negrita", "en negrita"], "accion": "navegar", "parametro": "negrita"},
-    {"intencion": "formato_cursiva", "frases": ["cursiva", "pon cursiva", "activa cursiva", "en cursiva", "italica"], "accion": "navegar", "parametro": "cursiva"},
-    {"intencion": "formato_subrayado", "frases": ["subrayado", "pon subrayado", "activa subrayado", "subraya"], "accion": "navegar", "parametro": "subrayado"},
-    {"intencion": "formato_letra_grande", "frases": ["letra mas grande", "aumentar letra", "agranda la letra"], "accion": "navegar", "parametro": "letra_grande"},
-    {"intencion": "formato_letra_pequena", "frases": ["letra mas pequena", "disminuir letra", "achica la letra"], "accion": "navegar", "parametro": "letra_pequena"},
+    {"intencion": "formato_negrita", "frases": ["negrita", "pon negrita", "activa negrita", "en negrita"], "accion": "editar", "parametro": "negrita"},
+    {"intencion": "formato_cursiva", "frases": ["cursiva", "pon cursiva", "activa cursiva", "en cursiva", "italica"], "accion": "editar", "parametro": "cursiva"},
+    {"intencion": "formato_subrayado", "frases": ["subrayado", "pon subrayado", "activa subrayado", "subraya"], "accion": "editar", "parametro": "subrayado"},
+    {"intencion": "formato_letra_grande", "frases": ["letra mas grande", "aumentar letra", "agranda la letra"], "accion": "editar", "parametro": "letra_grande"},
+    {"intencion": "formato_letra_pequena", "frases": ["letra mas pequena", "disminuir letra", "achica la letra"], "accion": "editar", "parametro": "letra_pequena"},
+
+    {"intencion": "copiar_texto", "frases": ["copia", "copiar", "copia eso", "copia el texto"], "accion": "editar", "parametro": "copiar"},
+    {"intencion": "pegar_texto", "frases": ["pega", "pegar", "pega eso", "pega el texto"], "accion": "editar", "parametro": "pegar"},
+    {"intencion": "cortar_texto", "frases": ["corta", "cortar", "corta eso", "corta el texto"], "accion": "editar", "parametro": "cortar"},
+    {"intencion": "rehacer_cambio", "frases": ["rehacer", "rehaz eso", "rehacer cambio"], "accion": "editar", "parametro": "rehacer"},
+
+    {"intencion": "borrar_seleccion", "frases": ["borra seleccion", "borra lo seleccionado", "elimina la seleccion", "elimina seleccion"], "accion": "editar", "parametro": "borrar_seleccion"},
+    {"intencion": "borrar_linea", "frases": ["borra linea", "borrar linea", "elimina la linea"], "accion": "editar", "parametro": "borrar_linea"},
+    {"intencion": "borrar_palabra_siguiente", "frases": ["borra palabra siguiente", "elimina palabra siguiente"], "accion": "editar", "parametro": "borrar_palabra_siguiente"},
+
+    {"intencion": "seleccionar_linea", "frases": ["selecciona linea", "seleccionar linea", "marca la linea"], "accion": "editar", "parametro": "seleccionar_linea"},
+    {"intencion": "seleccionar_palabra_anterior", "frases": ["selecciona palabra", "selecciona palabra anterior", "marca la palabra"], "accion": "editar", "parametro": "seleccionar_palabra_anterior"},
+    {"intencion": "seleccionar_palabra_siguiente", "frases": ["selecciona palabra siguiente", "marca palabra siguiente"], "accion": "editar", "parametro": "seleccionar_palabra_siguiente"},
+    {"intencion": "seleccionar_hasta_inicio", "frases": ["selecciona hasta el inicio", "selecciona hasta inicio de linea"], "accion": "editar", "parametro": "seleccionar_hasta_inicio"},
+    {"intencion": "seleccionar_hasta_fin", "frases": ["selecciona hasta el final", "selecciona hasta fin de linea"], "accion": "editar", "parametro": "seleccionar_hasta_fin"},
+
+    {"intencion": "cursor_inicio_linea", "frases": ["inicio de linea", "ve al inicio de la linea"], "accion": "editar", "parametro": "cursor_inicio_linea"},
+    {"intencion": "cursor_fin_linea", "frases": ["fin de linea", "ve al final de la linea"], "accion": "editar", "parametro": "cursor_fin_linea"},
+    {"intencion": "cursor_inicio_documento", "frases": ["inicio del documento", "ve al inicio del documento"], "accion": "editar", "parametro": "cursor_inicio_documento"},
+    {"intencion": "cursor_fin_documento", "frases": ["fin del documento", "ve al final del documento"], "accion": "editar", "parametro": "cursor_fin_documento"},
+    {"intencion": "cursor_palabra_anterior", "frases": ["palabra anterior", "una palabra atras"], "accion": "editar", "parametro": "cursor_palabra_anterior"},
+    {"intencion": "cursor_palabra_siguiente", "frases": ["palabra siguiente", "una palabra adelante"], "accion": "editar", "parametro": "cursor_palabra_siguiente"},
+    {"intencion": "cursor_letra_anterior", "frases": ["letra anterior", "una letra atras"], "accion": "editar", "parametro": "cursor_letra_anterior"},
+    {"intencion": "cursor_letra_siguiente", "frases": ["letra siguiente", "una letra adelante"], "accion": "editar", "parametro": "cursor_letra_siguiente"},
+
+    {"intencion": "documento_nuevo", "frases": ["documento nuevo", "nuevo documento", "crea un documento", "crear documento", "hoja en blanco", "documento en blanco"], "accion": "documento_nuevo", "parametro": null},
+    {"intencion": "abrir_ultimo_documento", "frases": ["abre el ultimo documento", "abrir ultimo documento", "abre el documento reciente", "abre el ultimo archivo"], "accion": "abrir_ultimo_documento", "parametro": null},
 
     {"intencion": "listar_comandos", "frases": ["que puedo decir", "ayuda", "que comandos hay", "que puedes hacer", "necesito ayuda"], "accion": "listar_comandos", "parametro": null},
 
@@ -68,6 +95,24 @@
         "^escribe (.+)$",
         "^escribir (.+)$",
         "^dicta (.+)$"
+      ]
+    },
+    {
+      "intencion": "guardar_documento_como",
+      "accion": "guardar_como",
+      "tipo_parametro": "texto",
+      "patrones": [
+        "^guarda(?:r)? (?:el )?(?:documento |archivo )?como (.+)$",
+        "^guarda(?:r)? con el nombre (?:de )?(.+)$"
+      ]
+    },
+    {
+      "intencion": "abrir_documento_por_nombre",
+      "accion": "abrir_documento",
+      "tipo_parametro": "texto",
+      "patrones": [
+        "^abr(?:e|ir) (?:el )?(?:archivo|documento) llamado (.+)$",
+        "^abr(?:e|ir) (?:el )?archivo (.+)$"
       ]
     }
   ]

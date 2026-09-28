@@ -108,6 +108,16 @@ class EjecutorAcciones:
                 return self._leer_pantalla()
             elif accion == "escribir_texto":
                 return self._escribir_texto(parametro)
+            elif accion == "editar":
+                return self._editar(parametro)
+            elif accion == "documento_nuevo":
+                return self._documento("documento_nuevo")
+            elif accion == "guardar_como":
+                return self._documento("guardar_como", parametro)
+            elif accion == "abrir_documento":
+                return self._documento("abrir_documento", parametro)
+            elif accion == "abrir_ultimo_documento":
+                return self._documento("abrir_ultimo_documento")
             elif accion == "listar_comandos":
                 return self._listar_comandos()
             elif accion == "mouse_mover":
@@ -123,6 +133,15 @@ class EjecutorAcciones:
         comando = APPS_DISPONIBLES.get(nombre_app)
         if not comando:
             return False, f"App no configurada: {nombre_app}"
+        if nombre_app == "word":
+            # Abrimos Word directamente con un documento en blanco, para no
+            # quedar en la pantalla de inicio (que exige elegir con el mouse).
+            try:
+                exito, _mensaje = self._obtener_navegador_asistido().documento_nuevo()
+                if exito:
+                    return True, "Word abierto con un documento en blanco"
+            except Exception:
+                pass  # si falla COM, abrimos Word de la forma normal
         subprocess.Popen(comando, shell=True)
         return True, f"Abriendo aplicación: {nombre_app}"
 
@@ -177,6 +196,22 @@ class EjecutorAcciones:
         except Exception as e:
             return False, f"No se pudo cargar el módulo de navegación. ¿Instalaste pyperclip? Detalle: {e}"
         return navegador.escribir_texto(texto)
+
+    def _editar(self, comando: str):
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
+        return navegador.editar(comando)
+
+    def _documento(self, metodo: str, parametro=None):
+        """Comandos de documentos de Word (nuevo, guardar como, abrir)."""
+        try:
+            navegador = self._obtener_navegador_asistido()
+        except Exception as e:
+            return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
+        funcion = getattr(navegador, metodo)
+        return funcion(parametro) if parametro is not None else funcion()
 
     def _listar_comandos(self):
         try:
