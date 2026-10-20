@@ -1,10 +1,12 @@
 {
-  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, borra palabra, borra linea, guarda, deshacer o rehacer. Para copiar y pegar, di copia, corta o pega. Para seleccionar, di selecciona todo, selecciona palabra o selecciona linea. Para un documento en blanco, di documento nuevo. Para guardar por primera vez, di guarda como, y el nombre. Para abrir uno guardado, di abre el archivo, y el nombre, o abre el ultimo documento. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para mover el cursor del mouse, di mueve arriba, mueve abajo, mueve izquierda, o mueve derecha, y para hacer clic, di clic, doble clic, o clic derecho. Para que el sistema deje de hablarte las confirmaciones, di desactiva la voz, y para que vuelva a hablar, di activa la voz. Para terminar, di detente.",
+  "ayuda_hablada": "Puedes decir cosas como: abre chrome, abre word, abre excel, abre powerpoint, abre la calculadora, o abre google. Para buscar, di busca, seguido de lo que quieras. Para moverte por la pantalla, di sube, baja, siguiente, anterior, o entra. Para escuchar lo que hay en pantalla, di lee. Para escribir, di escribe, seguido de lo que quieras dictar. Para editar, di nueva linea, borra, borra palabra, borra linea, guarda, deshacer o rehacer. Para copiar y pegar, di copia, corta o pega. Para seleccionar, di selecciona todo, selecciona palabra o selecciona linea. Para un documento en blanco, di documento nuevo. Para guardar por primera vez, di guarda como, y el nombre. Para abrir uno guardado, di abre el archivo, y el nombre, o abre el ultimo documento. Para dar formato al texto, di negrita, cursiva, o subrayado. Para el volumen, di sube el volumen, baja el volumen, o silenciar. Para mover el cursor del mouse, di mueve arriba, mueve abajo, mueve izquierda, o mueve derecha, y para hacer clic, di clic, doble clic, o clic derecho. En Excel, di libro nuevo, celda arriba, celda abajo, celda izquierda, celda derecha, suma arriba, suma izquierda, o ve a celda, y el nombre de la celda. En PowerPoint, di diapositiva nueva, siguiente diapositiva, diapositiva anterior, iniciar presentacion, terminar presentacion, titulo, seguido del texto, o contenido, seguido del texto. Para que el sistema deje de hablarte las confirmaciones, di desactiva la voz, y para que vuelva a hablar, di activa la voz. Para terminar, di detente.",
   "comandos": [
     {"intencion": "abrir_navegador", "frases": ["abrir navegador", "abre el navegador", "abrir chrome", "abre chrome"], "accion": "abrir_app", "parametro": "chrome"},
     {"intencion": "abrir_bloc_notas", "frases": ["abrir bloc de notas", "abre el bloc de notas", "abrir notepad"], "accion": "abrir_app", "parametro": "notepad"},
     {"intencion": "abrir_word", "frases": ["abrir word", "abre word", "abrir documento de word"], "accion": "abrir_app", "parametro": "word"},
     {"intencion": "abrir_calculadora", "frases": ["abrir calculadora", "abre la calculadora"], "accion": "abrir_app", "parametro": "calc"},
+    {"intencion": "abrir_excel", "frases": ["abrir excel", "abre excel", "abrir hoja de calculo", "abre la hoja de calculo"], "accion": "abrir_app", "parametro": "excel"},
+    {"intencion": "abrir_powerpoint", "frases": ["abrir powerpoint", "abre powerpoint", "abrir power point", "abre power point", "abrir presentacion", "abre una presentacion"], "accion": "abrir_app", "parametro": "powerpoint"},
     {"intencion": "buscar_web", "frases": ["abrir google", "abre google"], "accion": "abrir_url", "parametro": "https://www.google.com"},
     {"intencion": "subir_volumen", "frases": ["sube el volumen", "subir volumen", "aumentar volumen"], "accion": "control_volumen", "parametro": "subir"},
     {"intencion": "bajar_volumen", "frases": ["baja el volumen", "bajar volumen", "disminuir volumen"], "accion": "control_volumen", "parametro": "bajar"},
@@ -74,7 +76,21 @@
     {"intencion": "mouse_mover_derecha", "frases": ["mueve derecha", "mueve el mouse a la derecha", "cursor a la derecha"], "accion": "mouse_mover", "parametro": "derecha"},
     {"intencion": "mouse_clic_izquierdo", "frases": ["clic", "haz clic", "click", "presiona clic"], "accion": "mouse_clic", "parametro": "izquierdo"},
     {"intencion": "mouse_clic_doble", "frases": ["doble clic", "haz doble clic", "doble click"], "accion": "mouse_clic", "parametro": "doble"},
-    {"intencion": "mouse_clic_derecho", "frases": ["clic derecho", "haz clic derecho", "click derecho"], "accion": "mouse_clic", "parametro": "derecho"}
+    {"intencion": "mouse_clic_derecho", "frases": ["clic derecho", "haz clic derecho", "click derecho"], "accion": "mouse_clic", "parametro": "derecho"},
+
+    {"intencion": "excel_libro_nuevo", "frases": ["libro nuevo", "nuevo libro", "crea un libro", "hoja de calculo nueva"], "accion": "excel_nuevo", "parametro": null},
+    {"intencion": "excel_celda_arriba", "frases": ["celda arriba", "celda hacia arriba", "sube una celda"], "accion": "excel_mover", "parametro": "arriba"},
+    {"intencion": "excel_celda_abajo", "frases": ["celda abajo", "celda hacia abajo", "baja una celda"], "accion": "excel_mover", "parametro": "abajo"},
+    {"intencion": "excel_celda_izquierda", "frases": ["celda izquierda", "celda a la izquierda"], "accion": "excel_mover", "parametro": "izquierda"},
+    {"intencion": "excel_celda_derecha", "frases": ["celda derecha", "celda a la derecha"], "accion": "excel_mover", "parametro": "derecha"},
+    {"intencion": "excel_sumar_arriba", "frases": ["suma arriba", "suma la columna", "suma las celdas de arriba"], "accion": "excel_sumar", "parametro": "arriba"},
+    {"intencion": "excel_sumar_izquierda", "frases": ["suma izquierda", "suma la fila", "suma las celdas de la izquierda"], "accion": "excel_sumar", "parametro": "izquierda"},
+
+    {"intencion": "ppt_diapositiva_nueva", "frases": ["diapositiva nueva", "nueva diapositiva", "agrega una diapositiva", "crea una diapositiva"], "accion": "ppt_nueva_diapositiva", "parametro": null},
+    {"intencion": "ppt_diapositiva_siguiente", "frases": ["siguiente diapositiva", "diapositiva siguiente", "pasa la diapositiva"], "accion": "ppt_diapositiva", "parametro": "siguiente"},
+    {"intencion": "ppt_diapositiva_anterior", "frases": ["diapositiva anterior", "anterior diapositiva", "diapositiva de atras"], "accion": "ppt_diapositiva", "parametro": "anterior"},
+    {"intencion": "ppt_iniciar_presentacion", "frases": ["iniciar presentacion", "empieza la presentacion", "comenzar presentacion"], "accion": "ppt_presentar", "parametro": "inicio"},
+    {"intencion": "ppt_terminar_presentacion", "frases": ["terminar presentacion", "salir de la presentacion", "fin de la presentacion"], "accion": "ppt_presentar", "parametro": "fin"}
   ],
   "comandos_dinamicos": [
     {
@@ -114,6 +130,24 @@
         "^abr(?:e|ir) (?:el )?(?:archivo|documento) llamado (.+)$",
         "^abr(?:e|ir) (?:el )?archivo (.+)$"
       ]
+    },
+    {
+      "intencion": "excel_ir_a_celda",
+      "accion": "excel_ir_celda",
+      "tipo_parametro": "texto",
+      "patrones": ["^(?:ve|ir|ven) a (?:la )?celda (.+)$"]
+    },
+    {
+      "intencion": "ppt_poner_titulo",
+      "accion": "ppt_titulo",
+      "tipo_parametro": "texto",
+      "patrones": ["^titulo (.+)$", "^pon el titulo (.+)$"]
+    },
+    {
+      "intencion": "ppt_agregar_contenido",
+      "accion": "ppt_contenido",
+      "tipo_parametro": "texto",
+      "patrones": ["^contenido (.+)$", "^agrega punto (.+)$"]
     }
   ]
 }
