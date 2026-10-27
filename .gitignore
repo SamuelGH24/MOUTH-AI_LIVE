@@ -5,6 +5,10 @@ env/
 # Modelos de Vosk (pesados, no deben ir a GitHub - se descargan aparte)
 models/
 
+# Resultados de PyInstaller (se entregan aparte, no en GitHub)
+build/
+dist/
+
 # Cache de Python
 __pycache__/
 *.pyc
