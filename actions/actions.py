@@ -12,6 +12,16 @@ APPS_DISPONIBLES = {
     "notepad": "notepad.exe",
     "calc": "calc.exe",
     "word": "start winword",
+    "excel": "start excel",
+    "powerpoint": "start powerpnt",
+}
+
+# Acciones de Excel y PowerPoint. Cada una se llama igual que el método de
+# NavegadorAsistido (navigation/navigation.py) que la ejecuta.
+ACCIONES_OFFICE = {
+    "excel_nuevo", "excel_mover", "excel_ir_celda", "excel_sumar",
+    "ppt_nueva_diapositiva", "ppt_titulo", "ppt_contenido",
+    "ppt_diapositiva", "ppt_presentar",
 }
 
 VK_VOLUME_MUTE = 0xAD
@@ -118,6 +128,8 @@ class EjecutorAcciones:
                 return self._documento("abrir_documento", parametro)
             elif accion == "abrir_ultimo_documento":
                 return self._documento("abrir_ultimo_documento")
+            elif accion in ACCIONES_OFFICE:
+                return self._documento(accion, parametro)
             elif accion == "listar_comandos":
                 return self._listar_comandos()
             elif accion == "mouse_mover":
@@ -133,15 +145,22 @@ class EjecutorAcciones:
         comando = APPS_DISPONIBLES.get(nombre_app)
         if not comando:
             return False, f"App no configurada: {nombre_app}"
-        if nombre_app == "word":
-            # Abrimos Word directamente con un documento en blanco, para no
-            # quedar en la pantalla de inicio (que exige elegir con el mouse).
+
+        # Word, Excel y PowerPoint se abren directo con un archivo en blanco,
+        # para no quedar en la pantalla de inicio (que exige elegir con el mouse).
+        en_blanco = {
+            "word": ("documento_nuevo", "Word abierto con un documento en blanco"),
+            "excel": ("excel_nuevo", "Excel abierto con un libro en blanco"),
+            "powerpoint": ("ppt_nuevo", "PowerPoint abierto con una presentación en blanco"),
+        }
+        if nombre_app in en_blanco:
+            metodo, mensaje = en_blanco[nombre_app]
             try:
-                exito, _mensaje = self._obtener_navegador_asistido().documento_nuevo()
+                exito, _mensaje = getattr(self._obtener_navegador_asistido(), metodo)()
                 if exito:
-                    return True, "Word abierto con un documento en blanco"
+                    return True, mensaje
             except Exception:
-                pass  # si falla COM, abrimos Word de la forma normal
+                pass  # si falla COM, abrimos la app de la forma normal
         subprocess.Popen(comando, shell=True)
         return True, f"Abriendo aplicación: {nombre_app}"
 
@@ -205,7 +224,8 @@ class EjecutorAcciones:
         return navegador.editar(comando)
 
     def _documento(self, metodo: str, parametro=None):
-        """Comandos de documentos de Word (nuevo, guardar como, abrir)."""
+        """Delega en el módulo de navegación un método por su nombre: documentos
+        de Word (nuevo, guardar como, abrir) y acciones de Excel y PowerPoint."""
         try:
             navegador = self._obtener_navegador_asistido()
         except Exception as e:
