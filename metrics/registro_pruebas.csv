@@ -927,3 +927,31 @@ timestamp,texto_reconocido,intencion,confianza,reconocido,accion,parametro,exito
 2026-10-05T20:48:29,tengo una versión de word,,0.471,False,,,False,,
 2026-10-05T20:48:33,tengo la versión de guardia y la necesitas,,0.431,False,,,False,,
 2026-10-05T20:48:49,vale igual en la siguiente entonces te la mando en work,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3118.4
+2026-10-27T00:56:19,ahora google,buscar_web,0.783,True,abrir_url,https://www.google.com,True,Abriendo URL: https://www.google.com,7915.0
+2026-10-27T00:56:24,búsqueda clima en colombia,,0.537,False,,,False,,
+2026-10-27T00:56:38,busca clima bogotá,buscar_google_query,1.0,True,buscar_google,clima bogota,True,Buscando en Google: clima bogota,4207.19
+2026-10-27T00:56:53,busca clima bogotá,buscar_google_query,1.0,True,buscar_google,clima bogota,True,Buscando en Google: clima bogota,4234.1
+2026-10-27T00:56:59,lecciones,navegar_entrar,0.75,True,navegar,entrar,True,Navegación ejecutada: entrar,2993.8
+2026-10-27T00:57:12,lee,leer_pantalla,1.0,True,leer_pantalla,,True,Chrome Legacy Window,2779.1
+2026-10-27T00:57:25,selecciona,navegar_entrar,0.8,True,navegar,entrar,True,Navegación ejecutada: entrar,2972.07
+2026-10-27T00:57:43,selecciona,navegar_entrar,0.8,True,navegar,entrar,True,Navegación ejecutada: entrar,2986.12
+2026-10-27T00:58:08,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3177.03
+2026-10-27T00:58:31,lee,leer_pantalla,1.0,True,leer_pantalla,,True,"Casa - Wikipedia, la enciclopedia libre Wikipedia https://es.wikipedia.org › wiki › Casa: https://es.wikipedia.org/wiki/Casa",13087.9
+2026-10-27T00:58:38,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3190.17
+2026-10-27T00:58:53,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3190.98
+2026-10-27T00:59:00,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3131.5
+2026-10-27T00:59:10,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3181.63
+2026-10-27T00:59:41,lee,leer_pantalla,1.0,True,leer_pantalla,,True,Real Academia Española (RAE). Vista previa del vínculo. Sitio: Diccionario de la lengua española. Título: casa | Definición | Diccionario de la lengua española | RAE - ASALE. URL: https://dle.rae.es/casa.: https://dle.rae.es/casa,21325.74
+2026-10-27T01:00:18,bretzel,,0.588,False,,,False,,
+2026-10-27T01:00:27,a bretzel,,0.632,False,,,False,,
+2026-10-27T01:00:37,abre excel,abrir_excel,1.0,True,abrir_app,excel,True,Excel abierto con un libro en blanco,5063.13
+2026-10-27T01:06:42,busca el clima bogotá,buscar_google_query,1.0,True,buscar_google,el clima bogota,True,Buscando en Google: el clima bogota,4914.37
+2026-10-27T01:07:01,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3193.35
+2026-10-27T01:07:14,click,mouse_clic_izquierdo,1.0,True,mouse_clic,izquierdo,True,Clic izquierdo ejecutado,2433.17
+2026-10-27T01:07:22,selecciona,navegar_entrar,0.8,True,navegar,entrar,True,Navegación ejecutada: entrar,3001.01
+2026-10-27T01:07:25,de,,0.444,False,,,False,,
+2026-10-27T01:07:33,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3170.77
+2026-10-27T01:07:41,siguiente,navegar_siguiente,1.0,True,navegar,siguiente,True,Navegación ejecutada: siguiente,3195.03
+2026-10-27T01:07:52,selecciona,navegar_entrar,0.8,True,navegar,entrar,True,Navegación ejecutada: entrar,2986.25
+2026-10-27T01:07:55,página,,0.667,False,,,False,,
+2026-10-27T01:10:00,lee toda la página,leer_pagina,1.0,True,leer_pantalla,pagina,True,"WikipediaLa enciclopedia libre. Buscar en Wikipedia. Buscar. Donaciones. Crear una cuenta. Acceder. Wiki Loves Monuments: ¡Fotografía un monumento, ayuda a Wikipedia y gana!. Más información. Contenidos ocultar. Inicio. Etimología. Historia de la casa. Tipos de casa. Dependencias de una casa. Elementos de una casa. Casas prefabricadas. Expresiones relacionadas. Galería. Asuntos legales. Identificación y simbolismo. Véase también. Referencias. Enlaces externos. Casa. Artículo. Discusión. Leer. Ver código fuente. Ver historial. Apariencia ocultar. Texto. Pequeño. Estándar. Grande. Anchura. Estándar. Ancho. Color (beta). Automático. Claro. Oscuro. Para otros usos de este término, véase Casa (desambiguación).. Una casa u hogar (del latín casa, choza) es una edificación destinada para ser habitada.[1] Puede organizarse en una o varias plantas, y normalmente, aunque no exclusivamente, se refiere a un edificio destinado a vivienda unifamiliar.[1] Puede además disponer de un sótano, o un semisótano, y de una cubierta superior transitable denominada azotea o terraza. Si dispone de terreno suficiente, puede contar también con patio y jardín.. Es el lugar en que históricamente se desarrollaron las circunstancias y relaciones específicas de la vida social o familiar, desde el nacimiento a la muerte de muchos de sus componentes. Sirve de refugio contra la lluvia, el viento y demás agentes meteorológicos, y protege de posibles intrusos, humanos o animales. Además es el lugar donde",117246.16

@@ -25,7 +25,7 @@ Tu voz se procesa en tu propio computador: no se envía a ningún servidor.
 - Mover el mouse y hacer clic.
 - Pausar, reanudar y pedir ayuda hablada (`ayuda`).
 
-Hay **77 comandos fijos** (261 frases equivalentes) y **7 comandos dinámicos**
+Hay **78 comandos fijos** (266 frases equivalentes) y **7 comandos dinámicos**
 con texto variable (`busca [texto]`, `escribe [texto]`, `guarda como [nombre]`,
 `abre el archivo [nombre]`, `ve a celda [celda]`, `titulo [texto]`,
 `contenido [texto]`). La lista completa y buscable está en la página de
@@ -34,7 +34,7 @@ referencia visual del proyecto.
 | Categoría | Ejemplos |
 |---|---|
 | Aplicaciones y sistema | abre chrome, abre word, abre la calculadora, abre google, sube el volumen, silenciar, bloquear sesion, apagar el equipo |
-| Navegación y lectura | sube, baja, siguiente, anterior, entra, atras, lee |
+| Navegación y lectura | sube, baja, siguiente, anterior, entra, atras, lee, lee la pagina |
 | Búsqueda y dictado | busca [texto], escribe [texto] |
 | Edición | copia, pega, corta, borra palabra, borra linea, deshacer, rehacer, selecciona linea, fin de linea |
 | Formato | negrita, cursiva, subrayado, letra mas grande |
@@ -62,7 +62,7 @@ Micrófono → [Preprocesamiento] → ASR (Vosk) → Intérprete → Acciones �
 | `actions/` | Ejecuta la acción y narra el resultado. Delega la navegación y la edición. |
 | `navigation/` | Teclado simulado, lectura con UI Automation y pyttsx3, dictado, mouse, y control de Word, Excel y PowerPoint por COM. |
 | `gui/` | Interfaz Tkinter. La escucha corre en un hilo aparte para que la ventana no se congele. Es el punto de entrada. |
-| `metrics/` | Registra cada interacción en un CSV y calcula tasas de reconocimiento y error, y tiempos de respuesta. |
+| `metrics/` | Registra cada interacción en un CSV y calcula la tasa de identificación de comandos, la de ejecución exitosa y la de error, y los tiempos de respuesta. |
 | `preprocessing/` | Detección de voz y normalización de volumen. Construido, pero no integrado. |
 | `config/comandos.json` | Todos los comandos y el texto de la ayuda hablada. Se edita sin tocar el código. |
 
@@ -106,16 +106,36 @@ en `requirements.txt`.
 
 1. Instala Python 3.10 de 64 bits y marca "Add Python to PATH".
 2. Descarga el repositorio en una carpeta, por ejemplo `C:\MouthAILive`.
-3. `python -m venv venv` y `venv\Scripts\activate`
-4. `pip install -r requirements.txt`
-5. Descarga `vosk-model-es-0.42` desde
+3. Abre PowerShell en esa carpeta y ejecuta, uno por uno:
+
+   ```
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+4. Descarga `vosk-model-es-0.42` desde
    [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models) y
-   descomprímelo en `models/vosk-model-es-0.42/`.
-6. Si el modelo quedó en otra ruta, ajusta `RUTA_MODELO` en `asr/vosk_asr.py`.
+   descomprímelo en `models/vosk-model-es-0.42/`. Dentro deben verse
+   directamente las carpetas `am`, `conf` y `graph`.
+5. Si el modelo quedó en otra ruta, ajusta `RUTA_MODELO` en `asr/vosk_asr.py`.
    Debe apuntar a la carpeta que contiene directamente los archivos del modelo.
 
 Si falla `pyaudio`: usa Python 3.10 de 64 bits, actualiza pip
 (`python -m pip install --upgrade pip`) y ejecuta `pip install pyaudio==0.2.14`.
+
+**Si hay un error y el entorno falla** (por ejemplo, "Fatal error in launcher"
+porque el `venv` viene de otro equipo), reinstala el entorno:
+
+```
+deactivate
+Remove-Item -Recurse -Force venv
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python gui/app.py
+```
 
 ### Ejecutable
 
@@ -192,6 +212,9 @@ de la voz, 100 %; dictado, edición y formato, 97,1 %; **lectura en voz alta,
 
 Cómo leerlos con cuidado:
 
+- Son datos del registro de uso del prototipo: no provienen de pruebas en un
+  entorno experimental controlado y no miden la precisión del reconocimiento
+  de voz.
 - Las 726 interacciones sin comando mezclan habla del entorno y órdenes no
   reconocidas, así que el 21,8 % no es la proporción de órdenes acertadas.
 - Los fallos de lectura vienen de aplicaciones que no exponen bien su
@@ -240,7 +263,7 @@ micrófono: `python preprocessing/preprocessing.py`.
 ## Estructura del proyecto
 
 ```
-Mouth-ai-live/
+MOUTH-AI_LIVE/
 ├── asr/               reconocimiento de voz (Vosk)
 ├── interpreter/       interpretación de comandos fijos y dinámicos
 ├── actions/           ejecución de acciones

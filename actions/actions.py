@@ -115,7 +115,7 @@ class EjecutorAcciones:
             elif accion == "navegar":
                 return self._navegar(parametro)
             elif accion == "leer_pantalla":
-                return self._leer_pantalla()
+                return self._leer_pantalla(parametro)
             elif accion == "escribir_texto":
                 return self._escribir_texto(parametro)
             elif accion == "editar":
@@ -202,12 +202,12 @@ class EjecutorAcciones:
             return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
         return navegador.buscar_google(consulta)
 
-    def _leer_pantalla(self):
+    def _leer_pantalla(self, parametro=None):
         try:
             navegador = self._obtener_navegador_asistido()
         except Exception as e:
             return False, f"No se pudo cargar el módulo de navegación. Detalle: {e}"
-        return navegador.leer_elemento_enfocado()
+        return navegador.leer_elemento_enfocado(pagina=(parametro == "pagina"))
 
     def _escribir_texto(self, texto: str):
         try:

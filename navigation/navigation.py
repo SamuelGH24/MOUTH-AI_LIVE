@@ -22,6 +22,7 @@ Requiere (instalar en el entorno de Windows):
     pip install pyautogui pyttsx3 uiautomation pyperclip pywin32
 """
 
+import atexit
 import ctypes
 import difflib
 import os
@@ -307,7 +308,25 @@ def _carpeta_documentos_windows() -> Path:
 
 class NavegadorAsistido:
     def __init__(self):
-        pass
+        self._activar_lector_de_pantalla()
+
+    @staticmethod
+    def _activar_lector_de_pantalla():
+        """Avisa a Windows de que hay un lector de pantalla activo (lo mismo que
+        hacen NVDA o JAWS). Al detectarlo, Chrome y Edge exponen el contenido de
+        la página (enlaces, resultados de búsqueda) por UI Automation; sin este
+        aviso, 'lee' no encuentra texto en el navegador. Debe hacerse antes de
+        abrir el navegador. Se desactiva al cerrar el programa."""
+        SPI_SETSCREENREADER = 0x0047
+        SPIF_SENDCHANGE = 0x0002
+        try:
+            ctypes.windll.user32.SystemParametersInfoW(
+                SPI_SETSCREENREADER, 1, None, SPIF_SENDCHANGE)
+            atexit.register(
+                lambda: ctypes.windll.user32.SystemParametersInfoW(
+                    SPI_SETSCREENREADER, 0, None, SPIF_SENDCHANGE))
+        except Exception:
+            pass
 
     # ------------------------------------------------------------------
     # Detección de la aplicación en primer plano y acceso a Office por COM
@@ -1151,11 +1170,66 @@ class NavegadorAsistido:
             return None
         return None
 
-    def leer_elemento_enfocado(self):
+    def _es_navegador(self) -> bool:
+        return self._exe_activo().endswith(
+            ("chrome.exe", "msedge.exe", "firefox.exe", "brave.exe", "opera.exe"))
+
+    @staticmethod
+    def _limpiar_texto_copiado(texto: str, limite: int) -> str:
+        """Une las líneas con puntos, quita líneas vacías o de 1-2 caracteres
+        (menús, iconos) y recorta al límite sin cortar a mitad de palabra."""
+        lineas = [l.strip() for l in texto.replace("\r", "\n").split("\n")]
+        unido = ". ".join(l for l in lineas if len(l) > 2)
+        if len(unido) <= limite:
+            return unido
+        corte = unido[:limite].rsplit(" ", 1)[0]
+        return corte
+
+    def _leer_seleccion_portapapeles(self, todo: bool = False, limite: int = 1500) -> str:
+        """Devuelve el texto seleccionado en el navegador (Ctrl+C) o ''. Con
+        todo=True selecciona primero toda la página (Ctrl+A). Usa una marca en el
+        portapapeles para saber si de verdad se copió algo, y deja el portapapeles
+        del usuario como estaba."""
+        anterior = None
+        marca = f"__mouth_ai_live_{time.time()}__"
+        try:
+            try:
+                anterior = pyperclip.paste()
+            except Exception:
+                pass
+            pyperclip.copy(marca)
+            time.sleep(0.05)
+            if todo:
+                pyautogui.hotkey("ctrl", "a")
+                time.sleep(0.2)
+            pyautogui.hotkey("ctrl", "c")
+            time.sleep(0.3 if todo else 0.2)
+            texto = pyperclip.paste()
+            if texto and texto != marca:
+                return self._limpiar_texto_copiado(texto, limite)
+            return ""
+        except Exception:
+            return ""
+        finally:
+            if anterior is not None:
+                try:
+                    pyperclip.copy(anterior)
+                except Exception:
+                    pass
+
+    def leer_elemento_enfocado(self, pagina: bool = False):
         texto_office = self._leer_office()
         if texto_office:
             self._hablar(texto_office)
             return True, texto_office
+
+        # En el navegador: 'lee la pagina' selecciona y lee el texto de la página;
+        # 'lee' lee el texto seleccionado, si lo hay.
+        if self._es_navegador():
+            seleccion = self._leer_seleccion_portapapeles(todo=pagina)
+            if seleccion:
+                self._hablar(seleccion)
+                return True, seleccion
 
         if not UIAUTOMATION_DISPONIBLE:
             mensaje = "uiautomation no está instalado - no se puede leer la pantalla"

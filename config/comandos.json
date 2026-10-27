@@ -23,6 +23,7 @@
     {"intencion": "navegar_atras_pagina", "frases": ["atras", "regresa", "pagina anterior", "vuelve"], "accion": "navegar", "parametro": "atras_pagina"},
     {"intencion": "navegar_adelante_pagina", "frases": ["pagina siguiente", "avanza pagina"], "accion": "navegar", "parametro": "adelante_pagina"},
     {"intencion": "leer_pantalla", "frases": ["lee", "leer", "que dice", "leer esto", "que es esto"], "accion": "leer_pantalla", "parametro": null},
+    {"intencion": "leer_pagina", "frases": ["lee la pagina", "leer la pagina", "lee toda la pagina", "lee todo", "leer todo"], "accion": "leer_pantalla", "parametro": "pagina"},
 
     {"intencion": "nueva_linea", "frases": ["nueva linea", "salto de linea", "punto y aparte"], "accion": "navegar", "parametro": "entrar"},
     {"intencion": "borrar_letra", "frases": ["borra", "borrar", "elimina eso", "borra letra"], "accion": "navegar", "parametro": "borrar"},
