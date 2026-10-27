@@ -7,12 +7,22 @@ Requiere: pip install vosk pyaudio
 """
 
 import json
+import os
+import sys
 import time
 
 import pyaudio
 from vosk import KaldiRecognizer, Model
 
-RUTA_MODELO = r"C:\Users\X1504VA\Desktop\proyecto\Mouth-ai-live\models\vosk-model-es-0.42"
+# La ruta se calcula sola, sin importar en qué computador esté el proyecto.
+# - Como script (python gui/app.py): la raíz es la carpeta que contiene a "asr".
+# - Como .exe (PyInstaller): la raíz es la carpeta donde está el .exe.
+if getattr(sys, "frozen", False):
+    _RAIZ = os.path.dirname(sys.executable)
+else:
+    _RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+RUTA_MODELO = os.path.join(_RAIZ, "models", "vosk-model-es-0.42")
 FRECUENCIA_MUESTREO = 16000
 TAMANO_BLOQUE = 8000
 MAX_ERRORES_SEGUIDOS = 5  # si el micrófono falla más de esto seguido, se avisa y se detiene
